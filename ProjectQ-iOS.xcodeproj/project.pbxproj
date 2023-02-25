@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BF929A9243D00D27B7C /* ConnectSUI.swift */; };
+		3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */; };
+		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
+		3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242A299F9A9C00C6D95F /* NavigationLayer */; };
+		3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242E299F9AF300C6D95F /* ProjectQ-Components */; };
+		3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E2431299F9B1000C6D95F /* AboutAppViewController */; };
+		3E9E2434299F9B9F00C6D95F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */; };
+		3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */; };
+		3EA6AADD299EC3DB0086CCB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */; };
+		3EA6AAE6299EC3DE0086CCB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6AAE5299EC3DE0086CCB0 /* Assets.xcassets */; };
+		3EA6AAE9299EC3DE0086CCB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6AAE7299EC3DE0086CCB0 /* LaunchScreen.storyboard */; };
+		3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C47629A3D430004B2449 /* ClosableNavigationController.swift */; };
+		3EDE0DD829A8EDEB008075C0 /* PackageInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE0DD729A8EDEB008075C0 /* PackageInformationView.swift */; };
+		3EE1F91629A0F87600BBB85E /* PackagesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1F91529A0F87600BBB85E /* PackagesModule.swift */; };
+		3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1F91829A0FA3300BBB85E /* LocalPackageService.swift */; };
+		3EE1F91C29A0FE8D00BBB85E /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 3EE1F91B29A0FE8D00BBB85E /* SPAlert */; };
+		3EF02B1D29A0D7C400F2317A /* PackagesInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF02B1C29A0D7C400F2317A /* PackagesInformationCoordinator.swift */; };
+		3EF02B1F29A0D7EC00F2317A /* PackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF02B1E29A0D7EC00F2317A /* PackagesViewController.swift */; };
+		3EF02B2129A0D87A00F2317A /* DoubleTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF02B2029A0D87A00F2317A /* DoubleTitleTableViewCell.swift */; };
+		3EF02B2629A0DFB300F2317A /* PackagesNetworkingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF02B2529A0DFB300F2317A /* PackagesNetworkingPresenter.swift */; };
+		3EF02B2929A0E63300F2317A /* ModuleAssembler in Frameworks */ = {isa = PBXBuildFile; productRef = 3EF02B2829A0E63300F2317A /* ModuleAssembler */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E024BF929A9243D00D27B7C /* ConnectSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSUI.swift; sourceTree = "<group>"; };
+		3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationPresenter.swift; sourceTree = "<group>"; };
+		3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProjectQ-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EA6AAE5299EC3DE0086CCB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EA6AAE8299EC3DE0086CCB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3EA6AAEA299EC3DE0086CCB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EC2C47629A3D430004B2449 /* ClosableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosableNavigationController.swift; sourceTree = "<group>"; };
+		3EDE0DD729A8EDEB008075C0 /* PackageInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationView.swift; sourceTree = "<group>"; };
+		3EE1F91529A0F87600BBB85E /* PackagesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesModule.swift; sourceTree = "<group>"; };
+		3EE1F91829A0FA3300BBB85E /* LocalPackageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPackageService.swift; sourceTree = "<group>"; };
+		3EF02B1C29A0D7C400F2317A /* PackagesInformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInformationCoordinator.swift; sourceTree = "<group>"; };
+		3EF02B1E29A0D7EC00F2317A /* PackagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesViewController.swift; sourceTree = "<group>"; };
+		3EF02B2029A0D87A00F2317A /* DoubleTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTitleTableViewCell.swift; sourceTree = "<group>"; };
+		3EF02B2529A0DFB300F2317A /* PackagesNetworkingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesNetworkingPresenter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3EA6AAD6299EC3DB0086CCB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EE1F91C29A0FE8D00BBB85E /* SPAlert in Frameworks */,
+				3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */,
+				3EF02B2929A0E63300F2317A /* ModuleAssembler in Frameworks */,
+				3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */,
+				3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */,
+				3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */,
+				3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E024BF829A923C400D27B7C /* ConnectSUI */ = {
+			isa = PBXGroup;
+			children = (
+				3E024BF929A9243D00D27B7C /* ConnectSUI.swift */,
+			);
+			path = ConnectSUI;
+			sourceTree = "<group>";
+		};
+		3EA6AAD0299EC3DB0086CCB0 = {
+			isa = PBXGroup;
+			children = (
+				3EA6AADB299EC3DB0086CCB0 /* ProjectQ-iOS */,
+				3EA6AADA299EC3DB0086CCB0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EA6AADA299EC3DB0086CCB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EA6AADB299EC3DB0086CCB0 /* ProjectQ-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3EF02B1329A0D53100F2317A /* Application */,
+				3EF02B1229A0D52900F2317A /* Library */,
+				3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */,
+				3EA6AAE5299EC3DE0086CCB0 /* Assets.xcassets */,
+				3EA6AAE7299EC3DE0086CCB0 /* LaunchScreen.storyboard */,
+				3EA6AAEA299EC3DE0086CCB0 /* Info.plist */,
+			);
+			path = "ProjectQ-iOS";
+			sourceTree = "<group>";
+		};
+		3EDE0DD629A8EDD4008075C0 /* PackageInformation */ = {
+			isa = PBXGroup;
+			children = (
+				3EDE0DD729A8EDEB008075C0 /* PackageInformationView.swift */,
+				3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */,
+			);
+			path = PackageInformation;
+			sourceTree = "<group>";
+		};
+		3EE1F91729A0F9FF00BBB85E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3EE1F91829A0FA3300BBB85E /* LocalPackageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3EF02B1229A0D52900F2317A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				3E024BF829A923C400D27B7C /* ConnectSUI */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		3EF02B1329A0D53100F2317A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3EF02B1929A0D66000F2317A /* Coordinators */,
+				3EF02B1429A0D55E00F2317A /* UI */,
+				3EF02B1529A0D56A00F2317A /* Data */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3EF02B1429A0D55E00F2317A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3EF02B1829A0D60A00F2317A /* Screens */,
+				3EF02B1729A0D5D200F2317A /* Core */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3EF02B1529A0D56A00F2317A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3EE1F91729A0F9FF00BBB85E /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3EF02B1729A0D5D200F2317A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3EF02B2029A0D87A00F2317A /* DoubleTitleTableViewCell.swift */,
+				3EC2C47629A3D430004B2449 /* ClosableNavigationController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3EF02B1829A0D60A00F2317A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3EDE0DD629A8EDD4008075C0 /* PackageInformation */,
+				3EF02B2429A0DF9100F2317A /* Packages */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3EF02B1929A0D66000F2317A /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */,
+				3EF02B1C29A0D7C400F2317A /* PackagesInformationCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3EF02B2429A0DF9100F2317A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3EF02B1E29A0D7EC00F2317A /* PackagesViewController.swift */,
+				3EF02B2529A0DFB300F2317A /* PackagesNetworkingPresenter.swift */,
+				3EE1F91529A0F87600BBB85E /* PackagesModule.swift */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3EA6AAD8299EC3DB0086CCB0 /* ProjectQ-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EA6AAED299EC3DE0086CCB0 /* Build configuration list for PBXNativeTarget "ProjectQ-iOS" */;
+			buildPhases = (
+				3EA6AAD5299EC3DB0086CCB0 /* Sources */,
+				3EA6AAD6299EC3DB0086CCB0 /* Frameworks */,
+				3EA6AAD7299EC3DB0086CCB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ProjectQ-iOS";
+			packageProductDependencies = (
+				3E8A6A4E299EC58D00380C72 /* SnapKit */,
+				3E9E242A299F9A9C00C6D95F /* NavigationLayer */,
+				3E9E242E299F9AF300C6D95F /* ProjectQ-Components */,
+				3E9E2431299F9B1000C6D95F /* AboutAppViewController */,
+				3EF02B2829A0E63300F2317A /* ModuleAssembler */,
+				3EE1F91B29A0FE8D00BBB85E /* SPAlert */,
+				3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */,
+			);
+			productName = "ProjectQ-iOS";
+			productReference = 3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3EA6AAD1299EC3DB0086CCB0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					3EA6AAD8299EC3DB0086CCB0 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 3EA6AAD4299EC3DB0086CCB0 /* Build configuration list for PBXProject "ProjectQ-iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3EA6AAD0299EC3DB0086CCB0;
+			packageReferences = (
+				3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */,
+				3E9E242D299F9AF300C6D95F /* XCRemoteSwiftPackageReference "ProjectQ-Components" */,
+				3E9E2430299F9B0F00C6D95F /* XCRemoteSwiftPackageReference "AboutAppViewController" */,
+				3EF02B2729A0E63300F2317A /* XCRemoteSwiftPackageReference "ModuleAssembler" */,
+				3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */,
+				3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */,
+			);
+			productRefGroup = 3EA6AADA299EC3DB0086CCB0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3EA6AAD8299EC3DB0086CCB0 /* ProjectQ-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EA6AAD7299EC3DB0086CCB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EA6AAE9299EC3DE0086CCB0 /* LaunchScreen.storyboard in Resources */,
+				3EA6AAE6299EC3DE0086CCB0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EA6AAD5299EC3DB0086CCB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */,
+				3EF02B1D29A0D7C400F2317A /* PackagesInformationCoordinator.swift in Sources */,
+				3EE1F91629A0F87600BBB85E /* PackagesModule.swift in Sources */,
+				3EF02B2129A0D87A00F2317A /* DoubleTitleTableViewCell.swift in Sources */,
+				3EF02B1F29A0D7EC00F2317A /* PackagesViewController.swift in Sources */,
+				3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */,
+				3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */,
+				3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */,
+				3E9E2434299F9B9F00C6D95F /* AppCoordinator.swift in Sources */,
+				3EA6AADD299EC3DB0086CCB0 /* AppDelegate.swift in Sources */,
+				3EDE0DD829A8EDEB008075C0 /* PackageInformationView.swift in Sources */,
+				3EF02B2629A0DFB300F2317A /* PackagesNetworkingPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3EA6AAE7299EC3DE0086CCB0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EA6AAE8299EC3DE0086CCB0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3EA6AAEB299EC3DE0086CCB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3EA6AAEC299EC3DE0086CCB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3EA6AAEE299EC3DE0086CCB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R24W57U338;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ProjectQ-iOS/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "LaunchScreen.storyboard ";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jeytery.ProjectQ-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EA6AAEF299EC3DE0086CCB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R24W57U338;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ProjectQ-iOS/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "LaunchScreen.storyboard ";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jeytery.ProjectQ-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EA6AAD4299EC3DB0086CCB0 /* Build configuration list for PBXProject "ProjectQ-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EA6AAEB299EC3DE0086CCB0 /* Debug */,
+				3EA6AAEC299EC3DE0086CCB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EA6AAED299EC3DE0086CCB0 /* Build configuration list for PBXNativeTarget "ProjectQ-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EA6AAEE299EC3DE0086CCB0 /* Debug */,
+				3EA6AAEF299EC3DE0086CCB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftonica/NavigationLayer";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3E9E242D299F9AF300C6D95F /* XCRemoteSwiftPackageReference "ProjectQ-Components" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftonica/ProjectQ-Components";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3E9E2430299F9B0F00C6D95F /* XCRemoteSwiftPackageReference "AboutAppViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftonica/AboutAppViewController";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftonica/NativeSettingsViewController";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		3EF02B2729A0E63300F2317A /* XCRemoteSwiftPackageReference "ModuleAssembler" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftonica/ModuleAssembler";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3E8A6A4E299EC58D00380C72 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		3E9E242A299F9A9C00C6D95F /* NavigationLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */;
+			productName = NavigationLayer;
+		};
+		3E9E242E299F9AF300C6D95F /* ProjectQ-Components */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E9E242D299F9AF300C6D95F /* XCRemoteSwiftPackageReference "ProjectQ-Components" */;
+			productName = "ProjectQ-Components";
+		};
+		3E9E2431299F9B1000C6D95F /* AboutAppViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E9E2430299F9B0F00C6D95F /* XCRemoteSwiftPackageReference "AboutAppViewController" */;
+			productName = AboutAppViewController;
+		};
+		3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */;
+			productName = NativeSettingsViewController;
+		};
+		3EE1F91B29A0FE8D00BBB85E /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
+		};
+		3EF02B2829A0E63300F2317A /* ModuleAssembler */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EF02B2729A0E63300F2317A /* XCRemoteSwiftPackageReference "ModuleAssembler" */;
+			productName = ModuleAssembler;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3EA6AAD1299EC3DB0086CCB0 /* Project object */;
+}

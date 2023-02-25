@@ -1,0 +1,77 @@
+{
+  "pins" : [
+    {
+      "identity" : "aboutappviewcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftonica/AboutAppViewController",
+      "state" : {
+        "branch" : "master",
+        "revision" : "02b9793ce400a286380740312665b6b116013521"
+      }
+    },
+    {
+      "identity" : "moduleassembler",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftonica/ModuleAssembler",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e5ffe4021e9051e1f2eb76ab2596adba9c722fe9"
+      }
+    },
+    {
+      "identity" : "nativesettingsviewcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftonica/NativeSettingsViewController",
+      "state" : {
+        "branch" : "master",
+        "revision" : "172a9944c23b640e45dfd7ae036057684b5c78b9"
+      }
+    },
+    {
+      "identity" : "navigationlayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftonica/NavigationLayer",
+      "state" : {
+        "branch" : "master",
+        "revision" : "86eca394e185e976c2a427976637386412c46e22"
+      }
+    },
+    {
+      "identity" : "projectq-components",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftonica/ProjectQ-Components",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4be2da6f998398f4faaf9e9dbe1084c81dad2352"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
+        "version" : "5.6.0"
+      }
+    },
+    {
+      "identity" : "spalert",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPAlert",
+      "state" : {
+        "branch" : "main",
+        "revision" : "979a716b640b9e277b28f15f99ed35733694c844"
+      }
+    },
+    {
+      "identity" : "spsettingsicons",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/SPSettingsIcons",
+      "state" : {
+        "revision" : "1a2bd5439aabba3474408fbca86eaad344c3fce9",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
