@@ -19,24 +19,17 @@ class AppCoordinator: CompletionlessCoordinatable {
     func start() {
         configureNavigationController()
         navigationController.setViewControllers([packagesModule.view], animated: false)
-        packagesModule.view.completion = {
+        packagesModule.view.completion = { [unowned self] in
             switch $0 {
             case .didSelectPackage(let package):
-                let _module = SUIAssembler<
-                    PackageInformationView,
-                    PackageInformationPresenter,
-                    PackageInformationPublicInterface
-                >().module
-                self.navigationController.pushViewController(_module.view, animated: true)
-                    
+                showPackagesInformationCoordinator(package: package)
+                
             default: break
             }
         }
     }
 
-    private var packageInformationModule: Module.void!
     private let packagesModule = PackagesModule().module
-    
     private(set) var navigationController = UINavigationController()
 }
 
@@ -94,8 +87,8 @@ private extension AppCoordinator {
         packagesModule.view.navigationItem.leftBarButtonItems = [settings, plus]
     }
     
-    func showPackagesInformationCoordinator() {
-        let coordinator = PackagesInformationCoordinator()
+    func showPackagesInformationCoordinator(package: TaskPackage) {
+        let coordinator = PackagesInformationCoordinator(package: package)
         coordinator.completion = {
             event in
             switch event {

@@ -9,6 +9,14 @@ import Foundation
 import ModuleAssembler
 import SwiftUI
 
+class PackageInformationModule: SUIAssembler<
+    PackageInformationView,
+    PackageInformationPresenter,
+    PackageInformationPublicInterface
+> {
+    
+}
+
 protocol PackageInformationPublicInterface {}
 
 class PackageInformationPresenter: AssemblablePresenter {

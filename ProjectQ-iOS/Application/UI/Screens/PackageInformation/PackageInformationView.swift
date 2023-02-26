@@ -38,13 +38,35 @@ struct PackageInformationView: View, AssemblableView {
     private var username: String = ""
     
     @State
-    private var tasks: Tasks = []
+    private var tasks: Tasks = [
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        .init(name: "HI", baseComponents: []),
+        
+    ]
+    
+    @State
+    private var selection: Int = 0
     
     var body: some View {
         List {
             Section1()
             Section2(tasks: tasks)
-        }
+        }    
     }
     
     private func Section1() -> some View {
