@@ -3,4 +3,70 @@
    uuid = "A8055228-4F68-4DAE-8EF5-57749F30449E"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40A0D55C-B0A5-4D1F-94A0-552A0A3C5DC1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "init(_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "079E48C6-223A-4AB6-87D7-5EF1AB270940"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "module"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "079E48C6-223A-4AB6-87D7-5EF1AB270940 - 3d3fd3b8c1347820"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectQ_iOS.SUIAssembler2.module.getter : ModuleAssembler.Module&lt;ProjectQ_iOS.AssemblableUIHostingViewController&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1, &#x3c4;_0_2&gt;"
+                  moduleName = "ProjectQ-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmytroostapchenko/Documents/programming/XcodeProjects/ProjectQ-iOS/ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "518">
+               </Location>
+               <Location
+                  uuid = "079E48C6-223A-4AB6-87D7-5EF1AB270940 - 3d3fd3b8c1347820"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectQ_iOS.SUIAssembler2.module.getter : ModuleAssembler.Module&lt;ProjectQ_iOS.AssemblableUIHostingViewController&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1, &#x3c4;_0_2&gt;"
+                  moduleName = "ProjectQ-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmytroostapchenko/Documents/programming/XcodeProjects/ProjectQ-iOS/ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1161">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

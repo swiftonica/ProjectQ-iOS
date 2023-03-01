@@ -61,25 +61,22 @@ public class SUIAssembler<
     public var currentPresenter: PresenterType!
     
     public var view: AssemblableUIHostingViewController<_ViewType> {
-        return AssemblableUIHostingViewController(rootView: self.suiView)
+        return AssemblableUIHostingViewController(rootView: _ViewType())
     }
     
     public var suiView: _ViewType {
         return _ViewType()
     }
     
-    func module(configurator: (ViewType) -> Void) -> Module<
-        ViewType, PresenterType, PublicInterfaceType
-    > {
+    public var module: Module<AssemblableUIHostingViewController<_ViewType>, PresenterType, PublicInterfaceType> {
         let _view = self.view
         let _presenter = self.presenter
         self.currentView = _view
         self.currentPresenter = _presenter
-        configurator(currentView)
         if let eventOutput = _presenter.eventOutputHandler as? (ViewType.EventOutputReturnType) -> Void {
             _view.eventOutput = eventOutput
         }
-        if let interfaceContract = _view as? PresenterType.ViewType.InterfaceContractType {
+        if let interfaceContract = _view.rootView as? PresenterType.ViewType.InterfaceContractType {
             _presenter.interfaceContract = interfaceContract
         }
         _presenter.start()
@@ -91,46 +88,42 @@ public class SUIAssembler<
     }
 }
 
-public class DynamicViewSUIAssembler<
-    ViewType,
-    PresenterType,
-    PublicInterfaceType,
-    RootAssembler: SUIAssembler<ViewType, PresenterType, PublicInterfaceType>,
-    NewViewContent: View
-> {
-    private(set) var rootAssembler: RootAssembler
-    private let content: (RootAssembler.ViewType) -> NewViewContent
+public class SUIAssembler2<
+    _ViewType: AssemblableView & View,
+    PresenterType: AssemblablePresenter,
+    PublicInterfaceType
+>: Assemblable {
+    public typealias ViewType = AssemblableUIHostingViewController<_ViewType>
     
-    init(
-        rootAssembler: RootAssembler,
-        @ViewBuilder content: @escaping (RootAssembler.ViewType) -> NewViewContent
-    ) {
-        self.rootAssembler = rootAssembler
-        self.content = content
-    }
-}
-
-struct ConnectToolbarView<ViewType: View & AssemblableView, ToolbarContent: View>: AssemblableView, View {
-    typealias EventOutputReturnType = ViewType.EventOutputReturnType
-    typealias InterfaceContractType = ViewType.InterfaceContractType
+    public var currentView: ViewType!
+    public var currentPresenter: PresenterType!
     
-    var eventOutput: ((ViewType.EventOutputReturnType) -> Void)?
+    private let _view: ViewType
+    private let _presenter: PresenterType
+    private let _publicInterface: PublicInterfaceType
     
-    private(set) var rootView: ViewType
-    private var toolbar: ToolbarContent
-    
-    var body: some View {
-        rootView
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    toolbar
-                }
-            }
+    init(_ _view: _ViewType, _ _presenter: PresenterType, _ _publicInterface: PublicInterfaceType) {
+        self._view = .init(rootView: _view)
+        self._presenter = _presenter
+        self._publicInterface = _publicInterface
     }
     
-    init(rootView: ViewType, @ViewBuilder content: @escaping () -> ToolbarContent) {
-        self.rootView = rootView
-        self.toolbar = content()
-        self.eventOutput = rootView.eventOutput
+    public var module: Module<
+        AssemblableUIHostingViewController<_ViewType>,
+        PresenterType,
+        PublicInterfaceType
+    > {
+        if let eventOutput = _presenter.eventOutputHandler as? (ViewType.EventOutputReturnType) -> Void {
+            _view.eventOutput = eventOutput
+        }
+        if let interfaceContract = _view.rootView as? PresenterType.ViewType.InterfaceContractType {
+            _presenter.interfaceContract = interfaceContract
+        }
+        _presenter.start()
+        return Module(
+            view: _view,
+            presenter: _presenter,
+            publicInterface: _publicInterface
+        )
     }
 }

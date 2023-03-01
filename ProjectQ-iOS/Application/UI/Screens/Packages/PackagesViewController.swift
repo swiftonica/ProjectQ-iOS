@@ -49,6 +49,15 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
         configureTableView()
         configureLoaderView()
         configureNoResultsLabel()
+        
+        toolbarItems = [
+            .init(barButtonSystemItem: .add, target: nil, action: nil)
+        ]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.isToolbarHidden = false
     }
     
     required init?(coder: NSCoder) {

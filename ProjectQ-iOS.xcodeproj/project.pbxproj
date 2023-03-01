@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BF929A9243D00D27B7C /* ConnectSUI.swift */; };
 		3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */; };
+		3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */; };
+		3E4BA80629AC8B3500BDD45A /* ComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80529AC8B3500BDD45A /* ComponentsView.swift */; };
+		3E4BA80829AC8D1700BDD45A /* ComponentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */; };
+		3E4BA80A29AC8DBC00BDD45A /* AllComponentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */; };
+		3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */; };
 		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
 		3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242A299F9A9C00C6D95F /* NavigationLayer */; };
 		3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242E299F9AF300C6D95F /* ProjectQ-Components */; };
@@ -33,6 +38,11 @@
 /* Begin PBXFileReference section */
 		3E024BF929A9243D00D27B7C /* ConnectSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSUI.swift; sourceTree = "<group>"; };
 		3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationPresenter.swift; sourceTree = "<group>"; };
+		3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationView.swift; sourceTree = "<group>"; };
+		3E4BA80529AC8B3500BDD45A /* ComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsView.swift; sourceTree = "<group>"; };
+		3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPresenter.swift; sourceTree = "<group>"; };
+		3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllComponentsService.swift; sourceTree = "<group>"; };
+		3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsModule.swift; sourceTree = "<group>"; };
 		3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProjectQ-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +83,25 @@
 				3E024BF929A9243D00D27B7C /* ConnectSUI.swift */,
 			);
 			path = ConnectSUI;
+			sourceTree = "<group>";
+		};
+		3E4BA7FE29ABF47D00BDD45A /* TaskInformation */ = {
+			isa = PBXGroup;
+			children = (
+				3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */,
+			);
+			path = TaskInformation;
+			sourceTree = "<group>";
+		};
+		3E4BA80329AC8B1D00BDD45A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3E4BA80529AC8B3500BDD45A /* ComponentsView.swift */,
+				3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */,
+				3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */,
+				3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		3EA6AAD0299EC3DB0086CCB0 = {
@@ -168,6 +197,8 @@
 		3EF02B1829A0D60A00F2317A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E4BA80329AC8B1D00BDD45A /* Components */,
+				3E4BA7FE29ABF47D00BDD45A /* TaskInformation */,
 				3EDE0DD629A8EDD4008075C0 /* PackageInformation */,
 				3EF02B2429A0DF9100F2317A /* Packages */,
 			);
@@ -282,10 +313,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */,
+				3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */,
 				3EF02B1D29A0D7C400F2317A /* PackagesInformationCoordinator.swift in Sources */,
 				3EE1F91629A0F87600BBB85E /* PackagesModule.swift in Sources */,
 				3EF02B2129A0D87A00F2317A /* DoubleTitleTableViewCell.swift in Sources */,
+				3E4BA80629AC8B3500BDD45A /* ComponentsView.swift in Sources */,
+				3E4BA80A29AC8DBC00BDD45A /* AllComponentsService.swift in Sources */,
 				3EF02B1F29A0D7EC00F2317A /* PackagesViewController.swift in Sources */,
+				3E4BA80829AC8D1700BDD45A /* ComponentsPresenter.swift in Sources */,
 				3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */,
 				3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */,
 				3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */,
@@ -293,6 +328,7 @@
 				3EA6AADD299EC3DB0086CCB0 /* AppDelegate.swift in Sources */,
 				3EDE0DD829A8EDEB008075C0 /* PackageInformationView.swift in Sources */,
 				3EF02B2629A0DFB300F2317A /* PackagesNetworkingPresenter.swift in Sources */,
+				3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -414,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

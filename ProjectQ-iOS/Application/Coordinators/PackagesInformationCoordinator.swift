@@ -29,21 +29,15 @@ class PackagesInformationCoordinator: Coordinatable {
     
     // private
     var childCoordinators: [CompletionlessCoordinatable] = []
-    private(set) var navigationController = ClosableNavigationController().all()
+    private(set) var navigationController = ClosableNavigationController().onlyFirst()
     private let package: TaskPackage
     
     private enum Modules {
         case packageInfromation
+        case components
     }
     
     private var keeper = ModuleKeeper<Modules>()
-}
-
-
-extension View {
-    func eraseToAnyView() -> AnyView {
-        AnyView(self)
-    }
 }
 
 private extension PackagesInformationCoordinator {
@@ -51,61 +45,47 @@ private extension PackagesInformationCoordinator {
         
     }
     
-    @objc func addComponentDidTap() {
+    func addTaskDidTap() {
+        
+    }
+    
+    @objc func doneDidTap() {
         
     }
     
     func addPackageInformationModule() {
         let assembler = PackageInformationModule()
         let module = assembler.module
-        module.view.configurator = {
-            module.view.navigationItem.rightBarButtonItem = .init(
-                barButtonSystemItem: .done,
-                target: self,
-                action: #selector(self.addComponentDidTap)
-            )
-            
-            module.view.setToolbarItems([
-                .init(
-                    title: "Add Task",
-                    style: .plain,
-                    target: self,
-                    action: #selector(self.addComponentDidTap)
-                ),
-                .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                .init(
-                    title: "Edit",
-                    style: .plain,
-                    target: self,
-                    action: #selector(self.addComponentDidTap)
-                ),
-            ], animated: false)
+        
+        module.view.navigationItem.rightBarButtonItem = .init(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(self.doneDidTap)
+        )
+        
+        module.view.rootView.completion = {
+            event in
+            switch event {
+            case .addTask:
+                var view = TaskInformationView()
+                view.completion = {
+                    event in
+                    switch event {
+                    case .addComponent:
+                        let module = ComponentsModule().module
+                        self.keeper.keepModule(module, forKey: .components)
+                        self.navigationController.pushViewController(module.view, animated: true)
+                        
+                    default: break
+                    }
+                }
+                
+                self.navigationController.pushViewController(UIHostingController(rootView: view), animated: true)
+                
+            default: break
+            }
         }
         navigationController.pushViewController(module.view, animated: false)
         navigationController.setToolbarHidden(false, animated: false)
-    }
-}
-
-struct Test2: View {
-    var body: some View {
-        List {
-            Text("Hello")
-            Text("Hello")
-        }
-        .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
-                Button("hello from button", action: {
-                    // Your button action goes here
-                }) 
-            }
-        }
-    }
-}
-
-class Test: UIViewController {
-    @objc func addComponentDidTap() {}
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }

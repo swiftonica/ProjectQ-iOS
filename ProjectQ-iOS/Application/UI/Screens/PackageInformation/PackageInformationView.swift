@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import ProjectQ_Components
 import ModuleAssembler
+import NavigationLayer
 
 enum PackageInformationViewState {
     case noResults
@@ -19,7 +20,8 @@ protocol PackageInformationViewPublicInterface {
     func setState(_ state: PackageInformationViewState)
 }
 
-struct PackageInformationView: View, AssemblableView {
+struct PackageInformationView: View, AssemblableView, Completionable {
+    
     typealias InterfaceContractType = PackageInformationViewPublicInterface
     
     enum EventOutputReturnType {
@@ -30,8 +32,15 @@ struct PackageInformationView: View, AssemblableView {
         case didShowContent(Tasks)
     }
     
+    enum DelegateEventType {
+        case finish(TaskPackage)
+        case addTask
+        case edit
+    }
+    
+    var completion: ((DelegateEventType) -> Void)?
     var eventOutput: ((EventOutputReturnType) -> Void)?
-    var delegate = FinishEvent<TaskPackage>(finishPublisher: .init())
+    
     lazy var publicInterface: PackageInformationViewPublicInterface = self
     
     @State
@@ -56,17 +65,25 @@ struct PackageInformationView: View, AssemblableView {
         .init(name: "HI", baseComponents: []),
         .init(name: "HI", baseComponents: []),
         .init(name: "HI", baseComponents: []),
-        
     ]
-    
-    @State
-    private var selection: Int = 0
     
     var body: some View {
         List {
             Section1()
             Section2(tasks: tasks)
-        }    
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button("Add Task", action: {
+                    self.completion?(.addTask)
+                })
+                    .font(.system(size: 17, weight: .bold))
+                Spacer()
+                Button("Edit", action: {
+                    self.completion?(.edit)
+                })
+            }
+        }
     }
     
     private func Section1() -> some View {

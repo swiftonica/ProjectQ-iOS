@@ -11,6 +11,7 @@ import UIKit
 import NativeSettingsViewController
 import ProjectQ_Components
 import ModuleAssembler
+import SwiftUI
 
 class AppCoordinator: CompletionlessCoordinatable {
     var childCoordinators: [CompletionlessCoordinatable] = []
@@ -29,6 +30,7 @@ class AppCoordinator: CompletionlessCoordinatable {
         }
     }
 
+    private var keeper = ModuleKeeper<String>()
     private let packagesModule = PackagesModule().module
     private(set) var navigationController = UINavigationController()
 }
@@ -47,13 +49,13 @@ private extension AppCoordinator {
     
     @objc func plusDidTap() {
         let alertController = UIAlertController(
-            title: "jeytery Text",
+            title: "Enter Package Name",
             message: "Please enter your text below",
             preferredStyle: .alert
         )
         
         alertController.addTextField { textField in
-            textField.placeholder = "Text"
+            textField.placeholder = "For Example: Morning Routine"
             textField.keyboardType = .default
         }
         
@@ -68,6 +70,7 @@ private extension AppCoordinator {
         }
         
         alertController.addAction(saveAction)
+        alertController.addAction(.init(title: "Cancel", style: .cancel))
         self.navigationController.present(alertController, animated: true, completion: nil)
     }
     
@@ -78,13 +81,12 @@ private extension AppCoordinator {
             target: self,
             action: #selector(settingsDidtap)
         )
-        let plus = UIBarButtonItem(
-            image: UIImage(systemName: "plus")!,
-            style: .plain,
-            target: self,
-            action: #selector(plusDidTap)
-        )
-        packagesModule.view.navigationItem.leftBarButtonItems = [settings, plus]
+        packagesModule.view.navigationItem.leftBarButtonItems = [settings]
+        packagesModule.view.toolbarItems = [
+            .init(title: "New Package", style: .done, target: self, action: #selector(plusDidTap)),
+            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            .init(barButtonSystemItem: .edit, target: nil, action: nil)
+        ]
     }
     
     func showPackagesInformationCoordinator(package: TaskPackage) {
