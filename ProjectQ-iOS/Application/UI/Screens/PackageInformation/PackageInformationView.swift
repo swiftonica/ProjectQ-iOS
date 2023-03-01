@@ -11,20 +11,29 @@ import ProjectQ_Components
 import ModuleAssembler
 import NavigationLayer
 
-enum PackageInformationViewState {
-    case noResults
-    case displaingPackages(Tasks)
+fileprivate class PackageInformationViewViewModel: ObservableObject {
+    @Published var username: String = ""
+    @Published var tasks: Tasks = []
+    
+    var usernameBinding: Binding<String> {
+        Binding<String>(
+            get: { self.username },
+            set: { self.username = $0 }
+        )
+    }
 }
 
-protocol PackageInformationViewPublicInterface {
-    func setState(_ state: PackageInformationViewState)
+protocol PackageInformationViewInterfaceContract {
+    func setPackageName(_ name: String)
+    func showTasks(_ tasks: Tasks)
 }
 
 struct PackageInformationView: View, AssemblableView, Completionable {
     
-    typealias InterfaceContractType = PackageInformationViewPublicInterface
+    typealias InterfaceContractType = PackageInformationViewInterfaceContract
+    typealias EventOutputType = OutputEventType
     
-    enum EventOutputReturnType {
+    enum OutputEventType {
         case didDeleteTask(IndexPath)
         case didEnterName(String)
         
@@ -39,46 +48,22 @@ struct PackageInformationView: View, AssemblableView, Completionable {
     }
     
     var completion: ((DelegateEventType) -> Void)?
-    var eventOutput: ((EventOutputReturnType) -> Void)?
-    
-    lazy var publicInterface: PackageInformationViewPublicInterface = self
-    
-    @State
-    private var username: String = ""
-    
-    @State
-    private var tasks: Tasks = [
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-        .init(name: "HI", baseComponents: []),
-    ]
-    
+    var eventOutput: ((OutputEventType) -> Void)?
+        
     var body: some View {
         List {
             Section1()
-            Section2(tasks: tasks)
+            Section2(tasks: viewModel.tasks)
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 Button("Add Task", action: {
                     self.completion?(.addTask)
                 })
-                    .font(.system(size: 17, weight: .bold))
+                .font(.system(size: 17, weight: .bold))
+                
                 Spacer()
+                
                 Button("Edit", action: {
                     self.completion?(.edit)
                 })
@@ -86,18 +71,23 @@ struct PackageInformationView: View, AssemblableView, Completionable {
         }
     }
     
-    private func Section1() -> some View {
+    @ObservedObject
+    private var viewModel = PackageInformationViewViewModel()
+}
+
+private extension PackageInformationView {
+    func Section1() -> some View {
         Section(
             header: Text("Package name")
         ) {
             TextField(
                 "For example: Morning Routine",
-                text: $username
+                text: viewModel.usernameBinding
             )
         }
     }
     
-    private func Section2(tasks: Tasks) -> some View {
+    func Section2(tasks: Tasks) -> some View {
         Section(
             header: Text("Tasks")
         ) {
@@ -118,12 +108,13 @@ struct PackageInformationView: View, AssemblableView, Completionable {
     }
 }
 
-extension PackageInformationView: PackageInformationViewPublicInterface {
-    func setState(_ state: PackageInformationViewState) {
-        switch state {
-        case .noResults: break
-        case .displaingPackages(let tasks): break
-        }
+extension PackageInformationView: PackageInformationViewInterfaceContract {
+    func setPackageName(_ name: String) {
+        viewModel.username = name
+    }
+    
+    func showTasks(_ tasks: Tasks) {
+        viewModel.tasks = tasks
     }
 }
 

@@ -27,11 +27,10 @@ struct ComponentsView: View, AssemblableView, Completionable {
     var completion: ((DelegateEventType) -> Void)?
     
     enum DelegateEventType {
-        case lol
+        case didChooseComponent(Component)
     }
     
     enum EventOutputEventType {
-        case listOnAppear
         case didTapClickMe
     }
     
@@ -50,7 +49,6 @@ struct ComponentsView: View, AssemblableView, Completionable {
 private extension ComponentsView {
     func ComponentCell(_ component: Component) -> some View {
         Text(component.information.name)
-            .frame(height: 100)
     }
     
     func EmptyView() -> some View {
@@ -67,13 +65,6 @@ private extension ComponentsView {
             ForEach(0..<_viewModel.components.count, id: \.self) { each in
                 ComponentCell(_viewModel.components[each])
             }
-            
-            Button("click me", action: {
-                self.eventOutput?(.didTapClickMe)
-            })
-        }
-        .onAppear() {
-            self.eventOutput?(.listOnAppear)
         }
     }
 }

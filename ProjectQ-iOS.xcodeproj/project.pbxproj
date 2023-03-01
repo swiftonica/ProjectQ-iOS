@@ -14,6 +14,7 @@
 		3E4BA80829AC8D1700BDD45A /* ComponentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */; };
 		3E4BA80A29AC8DBC00BDD45A /* AllComponentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */; };
 		3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */; };
+		3E4C516929AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */; };
 		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
 		3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242A299F9A9C00C6D95F /* NavigationLayer */; };
 		3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242E299F9AF300C6D95F /* ProjectQ-Components */; };
@@ -43,6 +44,7 @@
 		3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPresenter.swift; sourceTree = "<group>"; };
 		3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllComponentsService.swift; sourceTree = "<group>"; };
 		3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsModule.swift; sourceTree = "<group>"; };
+		3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectQ-Components+Extesnsion.swift"; sourceTree = "<group>"; };
 		3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProjectQ-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3E4C516529AFD86A00C289DF /* ProjectQ-Compoenens-iOS-Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */,
+			);
+			path = "ProjectQ-Compoenens-iOS-Extension";
+			sourceTree = "<group>";
+		};
 		3EA6AAD0299EC3DB0086CCB0 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +163,7 @@
 		3EF02B1229A0D52900F2317A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3E4C516529AFD86A00C289DF /* ProjectQ-Compoenens-iOS-Extension */,
 				3E024BF829A923C400D27B7C /* ConnectSUI */,
 			);
 			path = Library;
@@ -321,6 +332,7 @@
 				3E4BA80A29AC8DBC00BDD45A /* AllComponentsService.swift in Sources */,
 				3EF02B1F29A0D7EC00F2317A /* PackagesViewController.swift in Sources */,
 				3E4BA80829AC8D1700BDD45A /* ComponentsPresenter.swift in Sources */,
+				3E4C516929AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift in Sources */,
 				3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */,
 				3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */,
 				3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */,

@@ -17,7 +17,7 @@ enum TaskInformationViewState {
 }
 
 protocol TaskInformationPublicInterface {
-    func setState(_ state: PackageInformationViewState)
+ 
 }
 
 struct TaskInformationView: View, AssemblableView, Completionable {
@@ -101,12 +101,7 @@ struct TaskInformationView: View, AssemblableView, Completionable {
     }
 }
 
-extension TaskInformationView: TaskInformationPublicInterface {
-    func setState(_ state: PackageInformationViewState) {
-        
-    }
-    
-    
+extension TaskInformationView: TaskInformationPublicInterface {    
 }
 
 struct TaskInformationView_Previews: PreviewProvider {

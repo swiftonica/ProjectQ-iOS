@@ -8,32 +8,44 @@
 import Foundation
 import ModuleAssembler
 import SwiftUI
+import ProjectQ_Components
 
-class PackageInformationModule: SUIAssembler<
+class PackageInformationModule: SUIAssembler2<
     PackageInformationView,
     PackageInformationPresenter,
     PackageInformationPublicInterface
 > {
-    
+    init(package: TaskPackage) {
+        let view = PackageInformationView()
+        let presenter = PackageInformationPresenter(package: package)
+        super.init(view, presenter, presenter)
+    }
 }
 
 protocol PackageInformationPublicInterface {}
 
-class PackageInformationPresenter: AssemblablePresenter {
+class PackageInformationPresenter: AssemblablePresenter, PackageInformationPublicInterface {
     typealias ViewType = PackageInformationView
     var interfaceContract: ViewType.InterfaceContractType!
     
-    var eventOutputHandler: ((PackageInformationView.EventOutputReturnType) -> Void) {
+    var eventOutputHandler: ((PackageInformationView.EventOutputType) -> Void) {
         return {
             _ in
         }
     }
     
-    func start() {
-            
+    required init() {
+        package = .init(tasks: [], name: "")
     }
     
-    required init() {
-        
+    init(package: TaskPackage) {
+        self.package = package
     }
+    
+    func start() {
+        interfaceContract.setPackageName(package.name)
+        interfaceContract.showTasks(package.tasks)
+    }
+    
+    private let package: TaskPackage
 }

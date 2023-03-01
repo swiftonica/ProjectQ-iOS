@@ -54,7 +54,7 @@ private extension PackagesInformationCoordinator {
     }
     
     func addPackageInformationModule() {
-        let assembler = PackageInformationModule()
+        let assembler = PackageInformationModule(package: package)
         let module = assembler.module
         
         module.view.navigationItem.rightBarButtonItem = .init(
@@ -75,6 +75,13 @@ private extension PackagesInformationCoordinator {
                         let module = ComponentsModule().module
                         self.keeper.keepModule(module, forKey: .components)
                         self.navigationController.pushViewController(module.view, animated: true)
+                        module.view.rootView.completion = {
+                            event in
+                            switch event {
+                            case .didChooseComponent(let component):
+                                let componentModule = Component.iOSModules
+                            }
+                        }
                         
                     default: break
                     }

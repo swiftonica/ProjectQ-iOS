@@ -30,9 +30,9 @@ public class AssemblableUIHostingViewController<
     ViewType: View & AssemblableView
 >: UIHostingController<ViewType>, AssemblableView {
     public typealias InterfaceContractType = ViewType.InterfaceContractType
-    public typealias EventOutputReturnType = ViewType.EventOutputReturnType
+    public typealias EventOutputReturnType = ViewType.EventOutputType
     
-    public var eventOutput: ((ViewType.EventOutputReturnType) -> Void)? {
+    public var eventOutput: ((ViewType.EventOutputType) -> Void)? {
         didSet {
             self.rootView.eventOutput = eventOutput
         }
