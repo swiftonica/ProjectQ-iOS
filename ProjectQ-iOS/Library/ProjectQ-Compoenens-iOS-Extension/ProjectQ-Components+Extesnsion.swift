@@ -11,7 +11,7 @@ import UIKit
 import ModuleAssembler
 
 extension Component {
-    func module(for component: Component) -> Module<UIViewController, Any, Any>? {
-        return nil 
+    func module(for component: Component) -> Module<UIViewController, AnyObject, Any>? {
+        return nil
     }
 }
