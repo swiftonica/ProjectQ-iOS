@@ -9,6 +9,7 @@ import Foundation
 import ModuleAssembler
 import SwiftUI
 import ProjectQ_Components
+import SPAlert
 
 class PackageInformationModule: SUIAssembler2<
     PackageInformationView,
@@ -22,7 +23,9 @@ class PackageInformationModule: SUIAssembler2<
     }
 }
 
-protocol PackageInformationPublicInterface {}
+protocol PackageInformationPublicInterface {
+    func addTask(_ task: Task)
+}
 
 class PackageInformationPresenter: AssemblablePresenter, PackageInformationPublicInterface {
     typealias ViewType = PackageInformationView
@@ -48,4 +51,14 @@ class PackageInformationPresenter: AssemblablePresenter, PackageInformationPubli
     }
     
     private let package: TaskPackage
+    
+    private var tasks: Tasks = []
+    
+    func addTask(_ task: Task) {
+        tasks.append(task)
+        SPAlert.present(title: "Success", message: "Has added your fresh-new task", preset: .done)
+        interfaceContract.showTasks(tasks)
+    }
 }
+
+

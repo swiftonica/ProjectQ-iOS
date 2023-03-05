@@ -127,3 +127,67 @@ public class SUIAssembler2<
         )
     }
 }
+
+public protocol EmptyViewInterfaceContractType {}
+
+public class EmptyView: AssemblableView {
+    public var eventOutput: ((_EventOutputType) -> Void)?
+    public enum _EventOutputType {}
+    public typealias EventOutputType = _EventOutputType
+    public typealias InterfaceContractType = EmptyViewInterfaceContractType
+    
+    public required init() {}
+}
+
+public class EmptyPresenter: AssemblablePresenter {
+    public var interfaceContract: EmptyView.InterfaceContractType!
+    public var eventOutputHandler: ((EmptyView.EventOutputType) -> Void) {
+        return {
+            _ in
+        }
+    }
+    
+    public typealias ViewType = EmptyView
+    public func start() {}
+    public required init() {}
+}
+
+
+public class Assembler2<
+    ViewType: AssemblableView,
+    PresenterType: AssemblablePresenter,
+    PublicInterfaceType
+>: Assemblable {
+
+    public var currentView: ViewType!
+    public var currentPresenter: PresenterType!
+    
+    private var _view: ViewType
+    private let _presenter: PresenterType
+    private let _publicInterface: PublicInterfaceType?
+    
+    init(_ _view: ViewType, _ _presenter: PresenterType, _ _publicInterface: PublicInterfaceType?) {
+        self._view = _view
+        self._presenter = _presenter
+        self._publicInterface = _publicInterface
+    }
+    
+    public var module: Module<
+        ViewType,
+        PresenterType,
+        PublicInterfaceType
+    > {
+        if let eventOutput = _presenter.eventOutputHandler as? (ViewType.EventOutputType) -> Void {
+            _view.eventOutput = eventOutput
+        }
+        if let interfaceContract = _view as? PresenterType.ViewType.InterfaceContractType {
+            _presenter.interfaceContract = interfaceContract
+        }
+        _presenter.start()
+        return Module(
+            view: _view,
+            presenter: _presenter,
+            publicInterface: _publicInterface
+        )
+    }
+}

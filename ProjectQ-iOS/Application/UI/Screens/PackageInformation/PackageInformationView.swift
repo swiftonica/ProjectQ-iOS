@@ -12,15 +12,8 @@ import ModuleAssembler
 import NavigationLayer
 
 fileprivate class PackageInformationViewViewModel: ObservableObject {
-    @Published var username: String = ""
+    @Published var packageName: String = ""
     @Published var tasks: Tasks = []
-    
-    var usernameBinding: Binding<String> {
-        Binding<String>(
-            get: { self.username },
-            set: { self.username = $0 }
-        )
-    }
 }
 
 protocol PackageInformationViewInterfaceContract {
@@ -44,7 +37,6 @@ struct PackageInformationView: View, AssemblableView, Completionable {
     enum DelegateEventType {
         case finish(TaskPackage)
         case addTask
-        case edit
     }
     
     var completion: ((DelegateEventType) -> Void)?
@@ -64,8 +56,9 @@ struct PackageInformationView: View, AssemblableView, Completionable {
                 
                 Spacer()
                 
-                Button("Edit", action: {
-                    self.completion?(.edit)
+                Button("Done", action: {
+                    let package = TaskPackage(tasks: viewModel.tasks, name: viewModel.packageName)
+                    self.completion?(.finish(package))
                 })
             }
         }
@@ -82,7 +75,7 @@ private extension PackageInformationView {
         ) {
             TextField(
                 "For example: Morning Routine",
-                text: viewModel.usernameBinding
+                text: $viewModel.packageName
             )
         }
     }
@@ -100,20 +93,34 @@ private extension PackageInformationView {
                     .foregroundColor(.secondary)
             }
             else {
-                ForEach(0..<tasks.count, id: \.self) { each in
-                    Text(tasks[each].name)
+                ForEach(0..<tasks.count, id: \.self) { index in
+                    TaskCell(tasks[index])
                 }
             }
+        }
+    }
+    
+    func TaskCell(_ task: Task) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                Text(task.name)
+                    .font(.headline)
+                Text("Components: \(task.components.count)")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+            Spacer()
         }
     }
 }
 
 extension PackageInformationView: PackageInformationViewInterfaceContract {
     func setPackageName(_ name: String) {
-        viewModel.username = name
+        viewModel.packageName = name
     }
     
     func showTasks(_ tasks: Tasks) {
+        viewModel.tasks.removeAll()
         viewModel.tasks = tasks
     }
 }

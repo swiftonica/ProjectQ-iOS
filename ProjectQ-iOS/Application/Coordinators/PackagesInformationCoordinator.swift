@@ -14,7 +14,7 @@ import ModuleAssembler
 
 class PackagesInformationCoordinator: Coordinatable {
     enum _ReturnData {
-        case package(TaskPackage)
+        case finish(TaskPackage)
     }
     
     var completion: ((_ReturnData) -> Void)?
@@ -33,66 +33,68 @@ class PackagesInformationCoordinator: Coordinatable {
     private let package: TaskPackage
     
     private enum Modules {
-        case packageInfromation
         case components
     }
     
     private var keeper = ModuleKeeper<Modules>()
+    
+    private var packageInformationModule: Module<AssemblableUIHostingViewController<PackageInformationView>, PackageInformationPresenter, PackageInformationPublicInterface>!
+    private var taskInformationModule: Module<AssemblableUIHostingViewController<TaskInformationView>, TaskInformationPresenter, TaskInformationPresenter>!
 }
 
 private extension PackagesInformationCoordinator {
-    @objc func packageInfomartionDoneDidTap() {
-        
-    }
-    
-    func addTaskDidTap() {
-        
-    }
-    
-    @objc func doneDidTap() {
-        
-    }
-    
     func addPackageInformationModule() {
         let assembler = PackageInformationModule(package: package)
-        let module = assembler.module
-        
-        module.view.navigationItem.rightBarButtonItem = .init(
-            barButtonSystemItem: .done,
-            target: self,
-            action: #selector(self.doneDidTap)
-        )
-        
-        module.view.rootView.completion = {
+        packageInformationModule = assembler.module
+  
+        packageInformationModule.view.rootView.completion = {
             event in
             switch event {
             case .addTask:
-                var view = TaskInformationView()
-                view.completion = {
+                let presenter = TaskInformationPresenter()
+                let module = SUIAssembler2(TaskInformationView(), presenter, presenter).module
+                
+                module.view.rootView.completion = {
                     event in
                     switch event {
                     case .addComponent:
-                        let module = ComponentsModule().module
-                        self.keeper.keepModule(module, forKey: .components)
-                        self.navigationController.pushViewController(module.view, animated: true)
-                        module.view.rootView.completion = {
+                        let componentCoordinator = ComponentsCoordinator(
+                            navigationController: self.navigationController,
+                            isAnimated: true
+                        )
+                        self.add(coordinatable: componentCoordinator)
+                        componentCoordinator.start()
+                        componentCoordinator.completion = {
                             event in
                             switch event {
                             case .didChooseComponent(let component):
-                                let componentModule = Component.iOSModules
+                                self.navigationController.popToViewController(
+                                    self.taskInformationModule.view,
+                                    animated: true
+                                )
+                                self.taskInformationModule.publicInterface?.addComponent(component)
                             }
                         }
+                        
+                    case .finish(let task):
+                        self.navigationController.popViewController(animated: true)
+                        self.packageInformationModule.publicInterface?.addTask(task)
+                        break
                         
                     default: break
                     }
                 }
                 
-                self.navigationController.pushViewController(UIHostingController(rootView: view), animated: true)
+                self.navigationController.pushViewController(module.view, animated: true)
+                self.taskInformationModule = module
+                
+            case .finish(let package):
+                self.completion?(.finish(package))
                 
             default: break
             }
         }
-        navigationController.pushViewController(module.view, animated: false)
+        navigationController.pushViewController(packageInformationModule.view, animated: false)
         navigationController.setToolbarHidden(false, animated: false)
     }
 }

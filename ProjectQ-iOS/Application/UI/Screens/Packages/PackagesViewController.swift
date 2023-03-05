@@ -28,6 +28,7 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
     enum DelegateEvent {
         case didSelectPackage(TaskPackage)
         case didRemovePackage(TaskPackage)
+        case didSelectAtIndex(Int)
     }
     
     enum State {
@@ -113,6 +114,7 @@ extension PackagesViewController: UITableViewDelegate, UITableViewDataSource {
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
         completion?(.didSelectPackage(packages[indexPath.row]))
+        completion?(.didSelectAtIndex(indexPath.row))
     }
     
     func tableView(

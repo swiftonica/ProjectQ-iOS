@@ -12,6 +12,7 @@ import ProjectQ_Components
 
 class ComponentsViewModel: ObservableObject {
     @Published var components: Components = []
+    @Published var selectedComponent: Component?
 }
 
 protocol ComponentsViewPublicInterface {}
@@ -44,11 +45,21 @@ struct ComponentsView: View, AssemblableView, Completionable {
     }
 
     @ObservedObject private var _viewModel = ComponentsViewModel()
+    @State private var selectedCompnent: HashableComponent? = nil
 }
 
 private extension ComponentsView {
     func ComponentCell(_ component: Component) -> some View {
-        Text(component.information.name)
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                Text(component.information.name)
+                    .font(.headline)
+                Text(component.handlerType.rawValue)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+            Spacer()
+        }
     }
     
     func EmptyView() -> some View {
@@ -61,10 +72,14 @@ private extension ComponentsView {
     }
     
     func List() -> some View {
-        SwiftUI.List {
-            ForEach(0..<_viewModel.components.count, id: \.self) { each in
-                ComponentCell(_viewModel.components[each])
+        SwiftUI.List(selection: $selectedCompnent) {
+            ForEach(_viewModel.components.hashableCompnents, id: \.self) {
+                hashableComponent in
+                ComponentCell(hashableComponent.component)
             }
+        }
+        .onChange(of: selectedCompnent) { s in
+            completion?(.didChooseComponent(selectedCompnent!.component))
         }
     }
 }

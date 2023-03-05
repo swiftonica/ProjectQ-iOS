@@ -25,6 +25,9 @@ class AppCoordinator: CompletionlessCoordinatable {
             case .didSelectPackage(let package):
                 showPackagesInformationCoordinator(package: package)
                 
+            case .didSelectAtIndex(let index):
+                self.selectedPackageIndex = index // [!] <- set state
+                
             default: break
             }
         }
@@ -33,6 +36,9 @@ class AppCoordinator: CompletionlessCoordinatable {
     private var keeper = ModuleKeeper<String>()
     private let packagesModule = PackagesModule().module
     private(set) var navigationController = UINavigationController()
+    
+    // state
+    private var selectedPackageIndex: Int = 0
 }
 
 private extension AppCoordinator {
@@ -94,8 +100,9 @@ private extension AppCoordinator {
         coordinator.completion = {
             event in
             switch event {
-            case .package(let package):
-                break
+            case .finish(let package):
+                coordinator.navigationController.dismiss(animated: true)
+                self.packagesModule.publicInterface?.updatePackage(at: self.selectedPackageIndex, package: package)
             }
         }
         self.add(coordinatable: coordinator)

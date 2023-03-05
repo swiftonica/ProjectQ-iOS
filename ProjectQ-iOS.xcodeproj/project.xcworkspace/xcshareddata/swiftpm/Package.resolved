@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "eureka",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xmartlabs/Eureka",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ba4ebbcc4e368e901de666870fc2a4524474a4c7"
+      }
+    },
+    {
       "identity" : "moduleassembler",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftonica/ModuleAssembler",
@@ -42,7 +51,7 @@
       "location" : "https://github.com/swiftonica/ProjectQ-Components",
       "state" : {
         "branch" : "master",
-        "revision" : "4be2da6f998398f4faaf9e9dbe1084c81dad2352"
+        "revision" : "083915a64079c20bca5260e62a3096bc5c0e2b20"
       }
     },
     {

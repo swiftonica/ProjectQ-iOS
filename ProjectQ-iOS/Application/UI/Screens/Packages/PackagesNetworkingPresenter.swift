@@ -12,6 +12,7 @@ import SPAlert
 
 protocol PackagesModulePublicInterface {
     func addPackage(_ package: TaskPackage)
+    func updatePackage(at index: Int, package: TaskPackage)
 }
 
 class PackageNetworkingPresenter: AssemblablePresenter {
@@ -57,6 +58,17 @@ extension PackageNetworkingPresenter: PackagesModulePublicInterface {
             print(error)
         }
         SPAlert.present(title: "New package was created", preset: .done)
+        interfaceContract.setState(.results(packages))
+    }
+    
+    func updatePackage(at index: Int, package: TaskPackage) {
+        self.packages.remove(at: index)
+        self.packages.insert(package, at: index)
+        service.savePackages(self.packages) { error in
+            SPAlert.present(title: error.rawValue, preset: .error)
+            print(error)
+        }
+        SPAlert.present(title: "Success!", message: "Package has been updated", preset: .done)
         interfaceContract.setState(.results(packages))
     }
 }

@@ -17,43 +17,36 @@ enum TaskInformationViewState {
 }
 
 protocol TaskInformationPublicInterface {
- 
+    func addComponent(_ component: Component)
+}
+
+fileprivate class TaskInformationViewViewModel: ObservableObject {
+    @Published var components: Components = []
+    @Published var taskName: String = ""
 }
 
 struct TaskInformationView: View, AssemblableView, Completionable {
     typealias InterfaceContractType = TaskInformationPublicInterface
     
-    enum EventOutputReturnType {
-        case didDeleteTask(IndexPath)
-        case didEnterName(String)
-        
-        case didShowNoResults
-        case didShowContent(Tasks)
+    enum EventOutputType {
+        case didTapDone
+        case didChangeName(String)
     }
     
     enum DelegateEventType {
-        case finish(TaskPackage)
+        case finish(Task)
         case addComponent
-        case done
     }
     
-    var eventOutput: ((EventOutputReturnType) -> Void)?
+    var eventOutput: ((EventOutputType) -> Void)?
     var completion: ((DelegateEventType) -> Void)?
     
     lazy var publicInterface: TaskInformationPublicInterface = self
-    
-    @State
-    private var username: String = ""
-    
-    @State
-    private var tasks: Tasks = [
-        
-    ]
-    
+  
     var body: some View {
         List {
             Section1()
-            Section2(tasks: tasks)
+            Section2(components: viewModel.components)
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
@@ -63,11 +56,18 @@ struct TaskInformationView: View, AssemblableView, Completionable {
                     .font(.system(size: 16, weight: .medium))
                 Spacer()
                 Button("Done", action: {
-                    self.completion?(.done)
+                    self.eventOutput?(.didTapDone)
+                    self.completion?(
+                        .finish(
+                            .init(name: self.viewModel.taskName, baseComponents: viewModel.components.baseComponents)
+                        )
+                    )
                 })
             }
         }
     }
+    
+    @ObservedObject private var viewModel = TaskInformationViewViewModel()
     
     private func Section1() -> some View {
         Section(
@@ -75,16 +75,19 @@ struct TaskInformationView: View, AssemblableView, Completionable {
         ) {
             TextField(
                 "For example: Go to GYM",
-                text: $username
+                text: $viewModel.taskName
             )
+            .onChange(of: viewModel.taskName) { newValue in
+                self.eventOutput?(.didChangeName(newValue))
+            }
         }
     }
     
-    private func Section2(tasks: Tasks) -> some View {
+    private func Section2(components: Components) -> some View {
         Section(
             header: Text("Components")
         ) {
-            if tasks.isEmpty {
+            if components.isEmpty {
                 Text("No Components")
                     .frame(height: 100)
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -93,15 +96,18 @@ struct TaskInformationView: View, AssemblableView, Completionable {
                     .foregroundColor(.secondary)
             }
             else {
-                ForEach(0..<tasks.count, id: \.self) { each in
-                    Text(tasks[each].name)
+                ForEach(0..<components.count, id: \.self) { each in
+                    Text(components[each].information.name)
                 }
             }
         }
     }
 }
 
-extension TaskInformationView: TaskInformationPublicInterface {    
+extension TaskInformationView: TaskInformationPublicInterface {
+    func addComponent(_ component: ProjectQ_Components.Component) {
+        viewModel.components.append(component)
+    }
 }
 
 struct TaskInformationView_Previews: PreviewProvider {

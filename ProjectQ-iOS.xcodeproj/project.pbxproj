@@ -16,6 +16,10 @@
 		3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */; };
 		3E4C516929AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */; };
 		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
+		3E9041BE29B1229F004905F7 /* TaskInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */; };
+		3E9041C029B127B5004905F7 /* ComponentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */; };
+		3E9041C429B13788004905F7 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9041C329B13788004905F7 /* Eureka */; };
+		3E9041C729B137B3004905F7 /* IntervalComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041C629B137B3004905F7 /* IntervalComponentViewController.swift */; };
 		3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242A299F9A9C00C6D95F /* NavigationLayer */; };
 		3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242E299F9AF300C6D95F /* ProjectQ-Components */; };
 		3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E2431299F9B1000C6D95F /* AboutAppViewController */; };
@@ -45,6 +49,9 @@
 		3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllComponentsService.swift; sourceTree = "<group>"; };
 		3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsModule.swift; sourceTree = "<group>"; };
 		3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectQ-Components+Extesnsion.swift"; sourceTree = "<group>"; };
+		3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationPresenter.swift; sourceTree = "<group>"; };
+		3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsCoordinator.swift; sourceTree = "<group>"; };
+		3E9041C629B137B3004905F7 /* IntervalComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalComponentViewController.swift; sourceTree = "<group>"; };
 		3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProjectQ-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +76,7 @@
 				3EE1F91C29A0FE8D00BBB85E /* SPAlert in Frameworks */,
 				3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */,
 				3EF02B2929A0E63300F2317A /* ModuleAssembler in Frameworks */,
+				3E9041C429B13788004905F7 /* Eureka in Frameworks */,
 				3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */,
 				3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */,
 				3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */,
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */,
+				3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */,
 			);
 			path = TaskInformation;
 			sourceTree = "<group>";
@@ -109,9 +118,26 @@
 		3E4C516529AFD86A00C289DF /* ProjectQ-Compoenens-iOS-Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3E9041C529B13794004905F7 /* ComponentScreens */,
 				3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */,
 			);
 			path = "ProjectQ-Compoenens-iOS-Extension";
+			sourceTree = "<group>";
+		};
+		3E9041C129B1336D004905F7 /* IntervalComponent */ = {
+			isa = PBXGroup;
+			children = (
+				3E9041C629B137B3004905F7 /* IntervalComponentViewController.swift */,
+			);
+			path = IntervalComponent;
+			sourceTree = "<group>";
+		};
+		3E9041C529B13794004905F7 /* ComponentScreens */ = {
+			isa = PBXGroup;
+			children = (
+				3E9041C129B1336D004905F7 /* IntervalComponent */,
+			);
+			path = ComponentScreens;
 			sourceTree = "<group>";
 		};
 		3EA6AAD0299EC3DB0086CCB0 = {
@@ -221,6 +247,7 @@
 			children = (
 				3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */,
 				3EF02B1C29A0D7C400F2317A /* PackagesInformationCoordinator.swift */,
+				3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -259,6 +286,7 @@
 				3EF02B2829A0E63300F2317A /* ModuleAssembler */,
 				3EE1F91B29A0FE8D00BBB85E /* SPAlert */,
 				3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */,
+				3E9041C329B13788004905F7 /* Eureka */,
 			);
 			productName = "ProjectQ-iOS";
 			productReference = 3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */;
@@ -296,6 +324,7 @@
 				3EF02B2729A0E63300F2317A /* XCRemoteSwiftPackageReference "ModuleAssembler" */,
 				3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */,
 				3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */,
+				3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */,
 			);
 			productRefGroup = 3EA6AADA299EC3DB0086CCB0 /* Products */;
 			projectDirPath = "";
@@ -326,6 +355,7 @@
 				3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */,
 				3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */,
 				3EF02B1D29A0D7C400F2317A /* PackagesInformationCoordinator.swift in Sources */,
+				3E9041C729B137B3004905F7 /* IntervalComponentViewController.swift in Sources */,
 				3EE1F91629A0F87600BBB85E /* PackagesModule.swift in Sources */,
 				3EF02B2129A0D87A00F2317A /* DoubleTitleTableViewCell.swift in Sources */,
 				3E4BA80629AC8B3500BDD45A /* ComponentsView.swift in Sources */,
@@ -335,12 +365,14 @@
 				3E4C516929AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift in Sources */,
 				3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */,
 				3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */,
+				3E9041C029B127B5004905F7 /* ComponentsCoordinator.swift in Sources */,
 				3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */,
 				3E9E2434299F9B9F00C6D95F /* AppCoordinator.swift in Sources */,
 				3EA6AADD299EC3DB0086CCB0 /* AppDelegate.swift in Sources */,
 				3EDE0DD829A8EDEB008075C0 /* PackageInformationView.swift in Sources */,
 				3EF02B2629A0DFB300F2317A /* PackagesNetworkingPresenter.swift in Sources */,
 				3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */,
+				3E9041BE29B1229F004905F7 /* TaskInformationPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +592,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/Eureka";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftonica/NavigationLayer";
@@ -615,6 +655,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		3E9041C329B13788004905F7 /* Eureka */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */;
+			productName = Eureka;
 		};
 		3E9E242A299F9A9C00C6D95F /* NavigationLayer */ = {
 			isa = XCSwiftPackageProductDependency;
