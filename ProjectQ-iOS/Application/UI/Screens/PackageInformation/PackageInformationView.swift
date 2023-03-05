@@ -62,6 +62,9 @@ struct PackageInformationView: View, AssemblableView, Completionable {
                 })
             }
         }
+        .gesture(DragGesture().onChanged { _ in
+            UIApplication.shared.endEditing()
+        })
     }
     
     @ObservedObject

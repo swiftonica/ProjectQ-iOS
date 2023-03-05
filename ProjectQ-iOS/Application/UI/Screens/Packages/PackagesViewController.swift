@@ -149,7 +149,7 @@ extension PackagesViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath) as! DoubleTitleTableViewCell
         let package = self.packages[indexPath.row]
         cell.textLabel?.text = package.name
-        cell.detailTextLabel?.text = String(package.tasks.count)
+        cell.detailTextLabel?.text = "Tasks: \(package.tasks.count)"
         return cell
     }
 }

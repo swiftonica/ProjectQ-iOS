@@ -65,6 +65,9 @@ struct TaskInformationView: View, AssemblableView, Completionable {
                 })
             }
         }
+        .gesture(DragGesture().onChanged { _ in
+            UIApplication.shared.endEditing()
+        })
     }
     
     @ObservedObject private var viewModel = TaskInformationViewViewModel()

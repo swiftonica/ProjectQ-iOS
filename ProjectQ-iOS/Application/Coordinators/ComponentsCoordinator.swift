@@ -41,6 +41,7 @@ class ComponentsCoordinator: Coordinatable {
             default: break
             }
         }
+        navigationController.setToolbarHidden(false, animated: false)
         keeper.keepModule(componentsModule, forKey: "components")
         navigationController.pushViewController(componentsModule.view, animated: isAnimated)
     }

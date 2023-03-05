@@ -5,10 +5,10 @@
 //  Created by Jeytery on 27.02.2023.
 //
 
-import SwiftUI
 import ModuleAssembler
 import NavigationLayer
 import ProjectQ_Components
+import SwiftUI
 
 class ComponentsViewModel: ObservableObject {
     @Published var components: Components = []
@@ -38,27 +38,41 @@ struct ComponentsView: View, AssemblableView, Completionable {
     var body: some View {
         if _viewModel.components.isEmpty {
             EmptyView()
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Button("", action: {})
+                    }
+                }
         }
         else {
-            List()
+            ComponentList()
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Button("", action: {})
+                    }
+                }
         }
     }
 
     @ObservedObject private var _viewModel = ComponentsViewModel()
-    @State private var selectedCompnent: HashableComponent? = nil
 }
 
 private extension ComponentsView {
-    func ComponentCell(_ component: Component) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 5) {
-                Text(component.information.name)
-                    .font(.headline)
-                Text(component.handlerType.rawValue)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+    func ComponentCell(_ component: Component, onTapGesture: @escaping () -> Void) -> some View {
+        ZStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(component.information.name)
+                        .font(.headline)
+                    Text(component.handlerType.rawValue)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Spacer()
             }
-            Spacer()
+            Button("") {
+                onTapGesture()
+            }
         }
     }
     
@@ -71,15 +85,17 @@ private extension ComponentsView {
             .foregroundColor(.secondary)
     }
     
-    func List() -> some View {
-        SwiftUI.List(selection: $selectedCompnent) {
-            ForEach(_viewModel.components.hashableCompnents, id: \.self) {
-                hashableComponent in
-                ComponentCell(hashableComponent.component)
+    func ComponentList() -> some View {
+        List(
+            _viewModel.components.hashableCompnents,
+            id: \.self
+        ) {
+            hashableComponent in
+            ComponentCell(hashableComponent.component) {
+                completion?(
+                    .didChooseComponent(hashableComponent.component)
+                )
             }
-        }
-        .onChange(of: selectedCompnent) { s in
-            completion?(.didChooseComponent(selectedCompnent!.component))
         }
     }
 }

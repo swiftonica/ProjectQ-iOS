@@ -12,6 +12,7 @@ import NativeSettingsViewController
 import ProjectQ_Components
 import ModuleAssembler
 import SwiftUI
+import SPAlert
 
 class AppCoordinator: CompletionlessCoordinatable {
     var childCoordinators: [CompletionlessCoordinatable] = []
@@ -23,7 +24,7 @@ class AppCoordinator: CompletionlessCoordinatable {
         packagesModule.view.completion = { [unowned self] in
             switch $0 {
             case .didSelectPackage(let package):
-                showPackagesInformationCoordinator(package: package)
+                self.showPackagesInformationCoordinator(package: package)
                 
             case .didSelectAtIndex(let index):
                 self.selectedPackageIndex = index // [!] <- set state
@@ -72,6 +73,11 @@ private extension AppCoordinator {
             else {
                 return
             }
+            
+            if text.isEmpty {
+                return SPAlert.present(title: "Error", message: "Package name is empty", preset: .error)
+            }
+            
             self.packagesModule.publicInterface?.addPackage(TaskPackage(tasks: [], name: text))
         }
         
@@ -90,8 +96,7 @@ private extension AppCoordinator {
         packagesModule.view.navigationItem.leftBarButtonItems = [settings]
         packagesModule.view.toolbarItems = [
             .init(title: "New Package", style: .done, target: self, action: #selector(plusDidTap)),
-            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            .init(barButtonSystemItem: .edit, target: nil, action: nil)
+            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         ]
     }
     
