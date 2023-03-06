@@ -74,12 +74,9 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
     private let noResultsLabel = UILabel()
     
     private let menu = UIMenu(title: "", children: [
-        UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), handler: { _ in
-            // Handle share action
-        }),
-        UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in
-            // Handle delete action
-        })
+        UIAction(title: "Connect", image: UIImage(systemName: "app.connected.to.app.below.fill"), handler: { _ in }),
+        UIAction(title: "Edit", image: UIImage(systemName: "pencil"), handler: { _ in }),
+        UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in })
     ])
 }
 
