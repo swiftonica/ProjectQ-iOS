@@ -16,19 +16,19 @@ protocol PackagesViewControllerPublicInterface: AnyObject {
     func setState(_ state: PackagesViewController.State)
 }
 
-
-
 protocol PackagesViewControllerInterfaceContract: AnyObject {}
 
 class PackagesViewController: UIViewController, Completionable, AssemblableView {
     enum EventOutputEvent {
-        case some
+        case didDeletePackageAt(Int)
     }
     
     enum DelegateEvent {
         case didSelectPackage(TaskPackage)
-        case didRemovePackage(TaskPackage)
-        case didSelectAtIndex(Int)
+        case didSelectIndex(Int)
+        
+        case didEditPackage(TaskPackage)
+        case didConnect(TaskPackage)
     }
     
     enum State {
@@ -73,11 +73,32 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let noResultsLabel = UILabel()
     
-    private let menu = UIMenu(title: "", children: [
-        UIAction(title: "Connect", image: UIImage(systemName: "app.connected.to.app.below.fill"), handler: { _ in }),
-        UIAction(title: "Edit", image: UIImage(systemName: "pencil"), handler: { _ in }),
-        UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in })
-    ])
+    private lazy var actions: [UIAction] = [
+        UIAction(title: "Connect", image: UIImage(systemName: "app.connected.to.app.below.fill"), handler: {
+            _ in
+            self.completion?(.didConnect(self.packages[self.contextIndexPath.row]))
+        }),
+        UIAction(title: "Edit", image: UIImage(systemName: "pencil"), handler: { _ in
+            self.completion?(.didEditPackage(self.packages[self.contextIndexPath.row]))
+        }),
+        UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in
+            self.eventOutput?(
+                .didDeletePackageAt(self.contextIndexPath.row)
+            )
+        })
+    ]
+    
+    private lazy var menuConfiguration = UIContextMenuConfiguration(
+        identifier: nil,
+        previewProvider: nil
+    ) { _ in
+        return UIMenu(
+            title: "",
+            children: self.actions
+        )
+    }
+    
+    private var contextIndexPath: IndexPath = .init(row: 0, section: 0)
 }
 
 private extension PackagesViewController {
@@ -90,7 +111,8 @@ private extension PackagesViewController {
         }
         tableView.register(
             DoubleTitleTableViewCell.self,
-            forCellReuseIdentifier: "cell")
+            forCellReuseIdentifier: "cell"
+        )
     }
     
     func configureLoaderView() {
@@ -107,7 +129,9 @@ private extension PackagesViewController {
         noResultsLabel.snp.makeConstraints {
             $0.center.edges.equalToSuperview()
         }
-        noResultsLabel.text = "No results..."
+        noResultsLabel.text = "No packages"
+        noResultsLabel.font = .systemFont(ofSize: 23, weight: .bold)
+        noResultsLabel.textColor = .secondaryLabel
         noResultsLabel.textAlignment = .center
         noResultsLabel.isHidden = true
     }
@@ -119,8 +143,8 @@ extension PackagesViewController: UITableViewDelegate, UITableViewDataSource {
         didSelectRowAt indexPath: IndexPath
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
-        completion?(.didSelectPackage(packages[indexPath.row]))
-        completion?(.didSelectAtIndex(indexPath.row))
+        completion?(.didSelectIndex(indexPath.row))
+        completion?(.didSelectPackage(self.packages[indexPath.row]))
     }
     
     func tableView(
@@ -132,13 +156,11 @@ extension PackagesViewController: UITableViewDelegate, UITableViewDataSource {
             title: "Delete"
         ) {
             [unowned self] contextualAction, view, boolValue in
-            self.completion?(
-                .didRemovePackage(packages[indexPath.row])
-            )
+            self.eventOutput?(.didDeletePackageAt(indexPath.row))
         }
         return .init(actions: [delete])
     }
-
+    
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -164,25 +186,8 @@ extension PackagesViewController: UITableViewDelegate, UITableViewDataSource {
         contextMenuConfigurationForRowAt indexPath: IndexPath,
         point: CGPoint
     ) -> UIContextMenuConfiguration? {
-        let menuConfiguration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            return self.menu
-        }
+        self.contextIndexPath = indexPath // [!] <- set state
         return menuConfiguration
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        willPerformPreviewActionForRowAt indexPath: IndexPath,
-        with animator: UIContextMenuInteractionCommitAnimating
-    ) {
-        // Handle preview action
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        willCommitMenuWithAnimator animator: UIContextMenuInteractionCommitAnimating
-    ) {
-        // Handle selected action
     }
 }
 

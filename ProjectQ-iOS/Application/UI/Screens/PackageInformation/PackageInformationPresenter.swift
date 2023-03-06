@@ -27,13 +27,20 @@ protocol PackageInformationPublicInterface {
     func addTask(_ task: Task)
 }
 
-class PackageInformationPresenter: AssemblablePresenter, PackageInformationPublicInterface {
+class PackageInformationPresenter: AssemblablePresenter {
     typealias ViewType = PackageInformationView
     var interfaceContract: ViewType.InterfaceContractType!
     
     var eventOutputHandler: ((PackageInformationView.EventOutputType) -> Void) {
         return {
-            _ in
+            event in
+            switch event {
+            case .didDeleteTask(let index):
+                self.tasks.remove(at: index)
+                self.interfaceContract.removeTask(at: index)
+                
+            default: break
+            }
         }
     }
     
@@ -43,6 +50,7 @@ class PackageInformationPresenter: AssemblablePresenter, PackageInformationPubli
     
     init(package: TaskPackage) {
         self.package = package
+        self.tasks = package.tasks
     }
     
     func start() {
@@ -51,14 +59,17 @@ class PackageInformationPresenter: AssemblablePresenter, PackageInformationPubli
     }
     
     private let package: TaskPackage
-    
     private var tasks: Tasks = []
-    
+}
+
+extension PackageInformationPresenter: PackageInformationPublicInterface {
     func addTask(_ task: Task) {
         tasks.append(task)
-        SPAlert.present(title: "Success", message: "Has added your fresh-new task", preset: .done)
+        SPAlert.present(
+            title: "Success",
+            message: "Has added your fresh-new task",
+            preset: .done
+        )
         interfaceContract.showTasks(tasks)
     }
 }
-
-

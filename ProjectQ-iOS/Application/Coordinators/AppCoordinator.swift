@@ -26,8 +26,11 @@ class AppCoordinator: CompletionlessCoordinatable {
             case .didSelectPackage(let package):
                 self.showPackagesInformationCoordinator(package: package)
                 
-            case .didSelectAtIndex(let index):
+            case .didSelectIndex(let index):
                 self.selectedPackageIndex = index // [!] <- set state
+                
+            case .didEditPackage(let package):
+                self.showPackagesInformationCoordinator(package: package)
                 
             default: break
             }
@@ -75,7 +78,11 @@ private extension AppCoordinator {
             }
             
             if text.isEmpty {
-                return SPAlert.present(title: "Error", message: "Package name is empty", preset: .error)
+                return SPAlert.present(
+                    title: "Error",
+                    message: "Package name is empty",
+                    preset: .error
+                )
             }
             
             self.packagesModule.publicInterface?.addPackage(TaskPackage(tasks: [], name: text))
@@ -106,8 +113,12 @@ private extension AppCoordinator {
             event in
             switch event {
             case .finish(let package):
+                
                 coordinator.navigationController.dismiss(animated: true)
-                self.packagesModule.publicInterface?.updatePackage(at: self.selectedPackageIndex, package: package)
+                self.packagesModule.publicInterface?.updatePackage(
+                    at: self.selectedPackageIndex,
+                    package: package
+                )
             }
         }
         self.add(coordinatable: coordinator)

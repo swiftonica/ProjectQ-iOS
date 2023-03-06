@@ -19,6 +19,8 @@ fileprivate class PackageInformationViewViewModel: ObservableObject {
 protocol PackageInformationViewInterfaceContract {
     func setPackageName(_ name: String)
     func showTasks(_ tasks: Tasks)
+    
+    func removeTask(at index: Int)
 }
 
 struct PackageInformationView: View, AssemblableView, Completionable {
@@ -27,7 +29,7 @@ struct PackageInformationView: View, AssemblableView, Completionable {
     typealias EventOutputType = OutputEventType
     
     enum OutputEventType {
-        case didDeleteTask(IndexPath)
+        case didDeleteTask(Int)
         case didEnterName(String)
         
         case didShowNoResults
@@ -62,9 +64,9 @@ struct PackageInformationView: View, AssemblableView, Completionable {
                 })
             }
         }
-        .gesture(DragGesture().onChanged { _ in
-            UIApplication.shared.endEditing()
-        })
+        .modifier(
+            DismissingKeyboard()
+        )
     }
     
     @ObservedObject
@@ -96,11 +98,17 @@ private extension PackageInformationView {
                     .foregroundColor(.secondary)
             }
             else {
-                ForEach(0..<tasks.count, id: \.self) { index in
+                ForEach(0 ..< tasks.count, id: \.self) { index in
                     TaskCell(tasks[index])
                 }
+                .onDelete(perform: delete)
             }
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        let index = Int(offsets.first!)
+        eventOutput?(.didDeleteTask(index))
     }
     
     func TaskCell(_ task: Task) -> some View {
@@ -125,6 +133,10 @@ extension PackageInformationView: PackageInformationViewInterfaceContract {
     func showTasks(_ tasks: Tasks) {
         viewModel.tasks.removeAll()
         viewModel.tasks = tasks
+    }
+    
+    func removeTask(at index: Int) {
+        viewModel.tasks.remove(at: index)
     }
 }
 

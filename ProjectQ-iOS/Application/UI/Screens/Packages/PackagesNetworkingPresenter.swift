@@ -23,7 +23,13 @@ class PackageNetworkingPresenter: AssemblablePresenter {
     var eventOutputHandler: (PackagesViewController.EventOutputReturnType) -> Void {
         return { eventType in
             switch eventType {
-            case .some: break 
+            case .didDeletePackageAt(let index):
+                self.removePackage(at: index)
+                if self.packages.isEmpty {
+                    self.interfaceContract.setState(.noResults)
+                }
+                
+            default: break
             }
         }
     }
@@ -50,13 +56,26 @@ class PackageNetworkingPresenter: AssemblablePresenter {
     private var packages: TaskPackages = []
 }
 
-extension PackageNetworkingPresenter: PackagesModulePublicInterface {
-    func addPackage(_ package: TaskPackage) {
-        self.packages.append(package)
+private extension PackageNetworkingPresenter {
+    func savePackages() {
         service.savePackages(self.packages) { error in
             SPAlert.present(title: error.rawValue, preset: .error)
             print(error)
         }
+    }
+    
+    func removePackage(at index: Int) {
+        self.packages.remove(at: index)
+        savePackages()
+        SPAlert.present(title: "Success!", message: "Package has been removed", preset: .done)
+        interfaceContract.setState(.results(self.packages))
+    }
+}
+
+extension PackageNetworkingPresenter: PackagesModulePublicInterface {
+    func addPackage(_ package: TaskPackage) {
+        self.packages.append(package)
+        savePackages()
         SPAlert.present(title: "New package was created", preset: .done)
         interfaceContract.setState(.results(packages))
     }
@@ -64,10 +83,8 @@ extension PackageNetworkingPresenter: PackagesModulePublicInterface {
     func updatePackage(at index: Int, package: TaskPackage) {
         self.packages.remove(at: index)
         self.packages.insert(package, at: index)
-        service.savePackages(self.packages) { error in
-            SPAlert.present(title: error.rawValue, preset: .error)
-            print(error)
-        }
+        savePackages()
+        
         SPAlert.present(title: "Success!", message: "Package has been updated", preset: .done)
         interfaceContract.setState(.results(packages))
     }
