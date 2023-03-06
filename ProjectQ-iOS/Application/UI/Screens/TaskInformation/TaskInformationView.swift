@@ -59,7 +59,10 @@ struct TaskInformationView: View, AssemblableView, Completionable {
                     self.eventOutput?(.didTapDone)
                     self.completion?(
                         .finish(
-                            .init(name: self.viewModel.taskName, baseComponents: viewModel.components.baseComponents)
+                            .init(
+                                name: self.viewModel.taskName,
+                                baseComponents: viewModel.components.baseComponents
+                            )
                         )
                     )
                 })

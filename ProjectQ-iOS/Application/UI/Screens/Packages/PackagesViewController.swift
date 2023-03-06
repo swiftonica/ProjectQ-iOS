@@ -72,6 +72,15 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
     private let loaderView = UIActivityIndicatorView(style: .large)
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let noResultsLabel = UILabel()
+    
+    private let menu = UIMenu(title: "", children: [
+        UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), handler: { _ in
+            // Handle share action
+        }),
+        UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in
+            // Handle delete action
+        })
+    ])
 }
 
 private extension PackagesViewController {
@@ -151,6 +160,32 @@ extension PackagesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = package.name
         cell.detailTextLabel?.text = "Tasks: \(package.tasks.count)"
         return cell
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        contextMenuConfigurationForRowAt indexPath: IndexPath,
+        point: CGPoint
+    ) -> UIContextMenuConfiguration? {
+        let menuConfiguration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            return self.menu
+        }
+        return menuConfiguration
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willPerformPreviewActionForRowAt indexPath: IndexPath,
+        with animator: UIContextMenuInteractionCommitAnimating
+    ) {
+        // Handle preview action
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willCommitMenuWithAnimator animator: UIContextMenuInteractionCommitAnimating
+    ) {
+        // Handle selected action
     }
 }
 
