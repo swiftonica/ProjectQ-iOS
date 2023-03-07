@@ -10,6 +10,15 @@ import ModuleAssembler
 import ProjectQ_Components
 import SPAlert
 
+class TaskInformationModule: SUIAssembler2<
+    TaskInformationView, TaskInformationPresenter, TaskInformationPresenter
+> {
+    init(task: Task) {
+        let presenter = TaskInformationPresenter(task: task)
+        super.init(TaskInformationView(), presenter, presenter)
+    }
+}
+
 protocol TaskInformationModulePublicInterface {
     func addComponent(_ component: Component)
 }
@@ -35,6 +44,10 @@ class TaskInformationPresenter: AssemblablePresenter {
             case .didChangeName(let newValue):
                 self.packageName = newValue
                 
+            case .didDeleteComponentAtIndex(let index):
+                self.components.remove(at: index)
+                self.interfaceContract.displayCompnents(self.components)
+                
             default: break
             }
         }
@@ -43,11 +56,15 @@ class TaskInformationPresenter: AssemblablePresenter {
     var interfaceContract: TaskInformationView.InterfaceContractType!
     
     func start() {
-            
+        interfaceContract.displayCompnents(components)
+        interfaceContract.displayTaskName(packageName)
     }
     
-    required init() {
-        
+    required init() {}
+            
+    init(task: Task) {
+        self.packageName = task.name
+        self.components = task.components
     }
     
     private var packageName: String = ""

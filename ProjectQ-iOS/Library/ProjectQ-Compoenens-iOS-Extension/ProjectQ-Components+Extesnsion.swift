@@ -35,6 +35,15 @@ struct HashableComponent: Hashable {
     }
 }
 
+//struct HashableObject<ObjectType>: Hashable {
+//    var object: ObjectType
+//    
+//    init(object: ObjectType) {
+//        self.object = object
+//    }
+//    
+//}
+
 extension Component {
     var hashableComponent: HashableComponent {
         return HashableComponent(component: self)
@@ -60,4 +69,8 @@ extension Component {
         default: return nil
         }
     }
+}
+
+extension Task {
+    static let empty = Task(name: "", baseComponents: [])
 }

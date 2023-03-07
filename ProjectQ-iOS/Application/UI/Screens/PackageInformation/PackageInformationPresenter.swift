@@ -25,6 +25,7 @@ class PackageInformationModule: SUIAssembler2<
 
 protocol PackageInformationPublicInterface {
     func addTask(_ task: Task)
+    func updateTask(at index: Int, task: Task)
 }
 
 class PackageInformationPresenter: AssemblablePresenter {
@@ -63,6 +64,17 @@ class PackageInformationPresenter: AssemblablePresenter {
 }
 
 extension PackageInformationPresenter: PackageInformationPublicInterface {
+    func updateTask(at index: Int, task: ProjectQ_Components.Task) {
+        tasks.remove(at: index)
+        tasks.insert(task, at: index)
+        SPAlert.present(
+            title: "Success",
+            message: "Has added your fresh-new task",
+            preset: .done
+        )
+        interfaceContract.showTasks(tasks)
+    }
+    
     func addTask(_ task: Task) {
         tasks.append(task)
         SPAlert.present(

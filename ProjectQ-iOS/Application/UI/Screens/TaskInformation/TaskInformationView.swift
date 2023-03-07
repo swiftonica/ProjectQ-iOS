@@ -11,13 +11,10 @@ import ProjectQ_Components
 import ModuleAssembler
 import NavigationLayer
 
-enum TaskInformationViewState {
-    case noResults
-    case displaingPackages(Tasks)
-}
-
 protocol TaskInformationPublicInterface {
     func addComponent(_ component: Component)
+    func displayTaskName(_ name: String)
+    func displayCompnents(_ components: Components)
 }
 
 fileprivate class TaskInformationViewViewModel: ObservableObject {
@@ -31,6 +28,8 @@ struct TaskInformationView: View, AssemblableView, Completionable {
     enum EventOutputType {
         case didTapDone
         case didChangeName(String)
+        
+        case didDeleteComponentAtIndex(Int)
     }
     
     enum DelegateEventType {
@@ -49,33 +48,34 @@ struct TaskInformationView: View, AssemblableView, Completionable {
             Section2(components: viewModel.components)
         }
         .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
-                Button("Add Component", action: {
-                    self.completion?(.addComponent)
-                })
-                    .font(.system(size: 16, weight: .medium))
-                Spacer()
-                Button("Done", action: {
-                    self.eventOutput?(.didTapDone)
-                    self.completion?(
-                        .finish(
-                            .init(
-                                name: self.viewModel.taskName,
-                                baseComponents: viewModel.components.baseComponents
-                            )
-                        )
-                    )
-                })
-            }
+            ToolBar()
         }
-        .gesture(DragGesture().onChanged { _ in
-            UIApplication.shared.endEditing()
-        })
     }
     
     @ObservedObject private var viewModel = TaskInformationViewViewModel()
+}
+
+private extension TaskInformationView {
+    func ToolBar() -> some ToolbarContent {
+        ToolbarItemGroup(placement: .bottomBar) {
+            Button("Add Component", action: { self.completion?(.addComponent) })
+                .font(.system(size: 16, weight: .medium))
+            Spacer()
+            Button("Done", action: {
+                self.eventOutput?(.didTapDone)
+                self.completion?(
+                    .finish(
+                        .init(
+                            name: self.viewModel.taskName,
+                            baseComponents: viewModel.components.baseComponents
+                        )
+                    )
+                )
+            })
+        }
+    }
     
-    private func Section1() -> some View {
+    func Section1() -> some View {
         Section(
             header: Text("Task's name")
         ) {
@@ -89,7 +89,7 @@ struct TaskInformationView: View, AssemblableView, Completionable {
         }
     }
     
-    private func Section2(components: Components) -> some View {
+    func Section2(components: Components) -> some View {
         Section(
             header: Text("Components")
         ) {
@@ -105,12 +105,27 @@ struct TaskInformationView: View, AssemblableView, Completionable {
                 ForEach(0..<components.count, id: \.self) { each in
                     Text(components[each].information.name)
                 }
+                .onDelete(perform: deleteAction)
             }
         }
+    }
+    
+    func deleteAction(_ indexSet: IndexSet) {
+        let index = Int(indexSet.first!)
+        eventOutput?(.didDeleteComponentAtIndex(index))
     }
 }
 
 extension TaskInformationView: TaskInformationPublicInterface {
+    func displayTaskName(_ name: String) {
+        viewModel.taskName = name
+    }
+    
+    func displayCompnents(_ components: ProjectQ_Components.Components) {
+        viewModel.components.removeAll()
+        viewModel.components = components
+    }
+    
     func addComponent(_ component: ProjectQ_Components.Component) {
         viewModel.components.append(component)
     }

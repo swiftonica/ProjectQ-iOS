@@ -113,7 +113,6 @@ private extension AppCoordinator {
             event in
             switch event {
             case .finish(let package):
-                
                 coordinator.navigationController.dismiss(animated: true)
                 self.packagesModule.publicInterface?.updatePackage(
                     at: self.selectedPackageIndex,

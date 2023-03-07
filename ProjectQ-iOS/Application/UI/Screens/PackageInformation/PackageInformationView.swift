@@ -39,6 +39,8 @@ struct PackageInformationView: View, AssemblableView, Completionable {
     enum DelegateEventType {
         case finish(TaskPackage)
         case addTask
+        case didSelectTask(Task)
+        case didSelectIndex(Int)
     }
     
     var completion: ((DelegateEventType) -> Void)?
@@ -55,18 +57,13 @@ struct PackageInformationView: View, AssemblableView, Completionable {
                     self.completion?(.addTask)
                 })
                 .font(.system(size: 17, weight: .bold))
-                
                 Spacer()
-                
                 Button("Done", action: {
                     let package = TaskPackage(tasks: viewModel.tasks, name: viewModel.packageName)
                     self.completion?(.finish(package))
                 })
             }
         }
-        .modifier(
-            DismissingKeyboard()
-        )
     }
     
     @ObservedObject
@@ -99,7 +96,10 @@ private extension PackageInformationView {
             }
             else {
                 ForEach(0 ..< tasks.count, id: \.self) { index in
-                    TaskCell(tasks[index])
+                    TaskCell(tasks[index]) {
+                        completion?(.didSelectTask(tasks[index]))
+                        completion?(.didSelectIndex(index))
+                    }
                 }
                 .onDelete(perform: delete)
             }
@@ -111,16 +111,21 @@ private extension PackageInformationView {
         eventOutput?(.didDeleteTask(index))
     }
     
-    func TaskCell(_ task: Task) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 5) {
-                Text(task.name)
-                    .font(.headline)
-                Text("Components: \(task.components.count)")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+    func TaskCell(_ task: Task, action: @escaping () -> Void) -> some View {
+        ZStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(task.name)
+                        .font(.headline)
+                    Text("Components: \(task.components.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Spacer()
             }
-            Spacer()
+            Button("") {
+                action()
+            }
         }
     }
 }
