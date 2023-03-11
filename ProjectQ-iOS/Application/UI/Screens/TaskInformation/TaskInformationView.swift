@@ -103,9 +103,18 @@ private extension TaskInformationView {
                             completion?(.selectedComponent(components[each]))
                             completion?(.selectedComponentIndex(each))
                         }
-                        Text(components[each].information.name)
+                        
+                        HStack {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(components[each].information.name)
+                                    .font(.headline)
+                                Text(components[each].uiDescription)
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            Spacer()
+                        }
                     }
-                    
                 }
                 .onDelete(perform: deleteAction)
             }
