@@ -11,10 +11,11 @@ import ProjectQ_Components
 import ModuleAssembler
 import NavigationLayer
 
-protocol TaskInformationPublicInterface {
+protocol TaskInformationInterfaceContract {
     func addComponent(_ component: Component)
     func displayTaskName(_ name: String)
     func displayCompnents(_ components: Components)
+    func endModule(task: Task)
 }
 
 fileprivate class TaskInformationViewViewModel: ObservableObject {
@@ -23,7 +24,7 @@ fileprivate class TaskInformationViewViewModel: ObservableObject {
 }
 
 struct TaskInformationView: View, AssemblableView, Completionable {
-    typealias InterfaceContractType = TaskInformationPublicInterface
+    typealias InterfaceContractType = TaskInformationInterfaceContract
     
     enum EventOutputType {
         case didTapDone
@@ -35,13 +36,13 @@ struct TaskInformationView: View, AssemblableView, Completionable {
     enum DelegateEventType {
         case finish(Task)
         case addComponent
+        
+        case selectedComponent(Component)
     }
     
     var eventOutput: ((EventOutputType) -> Void)?
     var completion: ((DelegateEventType) -> Void)?
     
-    lazy var publicInterface: TaskInformationPublicInterface = self
-  
     var body: some View {
         List {
             Section1()
@@ -58,19 +59,12 @@ struct TaskInformationView: View, AssemblableView, Completionable {
 private extension TaskInformationView {
     func ToolBar() -> some ToolbarContent {
         ToolbarItemGroup(placement: .bottomBar) {
-            Button("Add Component", action: { self.completion?(.addComponent) })
-                .font(.system(size: 16, weight: .medium))
+            Button("Add Component", action: {
+                self.completion?(.addComponent)
+            }).font(.system(size: 16, weight: .medium))
             Spacer()
             Button("Done", action: {
                 self.eventOutput?(.didTapDone)
-                self.completion?(
-                    .finish(
-                        .init(
-                            name: self.viewModel.taskName,
-                            baseComponents: viewModel.components.baseComponents
-                        )
-                    )
-                )
             })
         }
     }
@@ -103,7 +97,13 @@ private extension TaskInformationView {
             }
             else {
                 ForEach(0..<components.count, id: \.self) { each in
-                    Text(components[each].information.name)
+                    ZStack {
+                        Button("") {
+                            completion?(.selectedComponent(components[each]))
+                        }
+                        Text(components[each].information.name)
+                    }
+                    
                 }
                 .onDelete(perform: deleteAction)
             }
@@ -116,7 +116,7 @@ private extension TaskInformationView {
     }
 }
 
-extension TaskInformationView: TaskInformationPublicInterface {
+extension TaskInformationView: TaskInformationInterfaceContract {
     func displayTaskName(_ name: String) {
         viewModel.taskName = name
     }
@@ -128,6 +128,12 @@ extension TaskInformationView: TaskInformationPublicInterface {
     
     func addComponent(_ component: ProjectQ_Components.Component) {
         viewModel.components.append(component)
+    }
+    
+    func endModule(task: Task) {
+        self.completion?(
+            .finish(task)
+        )
     }
 }
 

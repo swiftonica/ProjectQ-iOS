@@ -530,6 +530,7 @@
 				DEVELOPMENT_TEAM = R24W57U338;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProjectQ-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ProQ;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "LaunchScreen.storyboard ";
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -558,6 +559,7 @@
 				DEVELOPMENT_TEAM = R24W57U338;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProjectQ-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ProQ;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "LaunchScreen.storyboard ";
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

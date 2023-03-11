@@ -10,6 +10,7 @@ import ProjectQ_Components
 import NavigationLayer
 import UIKit
 import ModuleAssembler
+import SPAlert
 
 class TaskInformationCoordinator: Coordinatable {
     typealias ReturnData = _ReturnType
@@ -20,18 +21,26 @@ class TaskInformationCoordinator: Coordinatable {
     
     init(task: Task = .empty, navigationController: UINavigationController? = nil) {
         self.navigationController = navigationController
-        let module = TaskInformationModule(task: task).module
         
-        module.view.rootView.completion = {
+        var view = TaskInformationView()
+        view.completion = {
             event in
             switch event {
             case .addComponent:
                 self.addComponentCoordinator()
+                                            
+            case .selectedComponent(let component):
+                guard let module = component.module else {
+                    SPAlert.present(title: "Error", message: "Screen doesn't exist", preset: .error)
+                    break
+                }
+                self.navigationController.pushViewController(module.view, animated: true)
                 
             case .finish(let task):
                 self.completion?(.finsish(task))
             }
         }
+        let module = TaskInformationModule(view: view, task: task).module
         
         let isMineController = navigationController == nil
         if isMineController {

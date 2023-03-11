@@ -35,15 +35,6 @@ struct HashableComponent: Hashable {
     }
 }
 
-//struct HashableObject<ObjectType>: Hashable {
-//    var object: ObjectType
-//    
-//    init(object: ObjectType) {
-//        self.object = object
-//    }
-//    
-//}
-
 extension Component {
     var hashableComponent: HashableComponent {
         return HashableComponent(component: self)
@@ -60,8 +51,12 @@ extension Component {
     var module: Module<ViewComponentReturnable & UIViewController, AnyObject, Any>? {
         switch self {
         case .interval:
+            let view = IntervalViewController()
+            if let data = self.input {
+                view.configureData(data)
+            }
             return Module(
-                view: IntervalViewController(),
+                view: view,
                 presenter: EmptyPresenter(),
                 publicInterface: nil
             )

@@ -17,6 +17,11 @@ class TaskInformationModule: SUIAssembler2<
         let presenter = TaskInformationPresenter(task: task)
         super.init(TaskInformationView(), presenter, presenter)
     }
+    
+    init(view: TaskInformationView, task: Task) {
+        let presenter = TaskInformationPresenter(task: task)
+        super.init(view, presenter, presenter)
+    }
 }
 
 protocol TaskInformationModulePublicInterface {
@@ -28,7 +33,7 @@ class TaskInformationPresenter: AssemblablePresenter {
     
     var eventOutputHandler: ((TaskInformationView.EventOutputType) -> Void) {
         return {
-            [unowned self] event in
+            [self] event in
             switch event {
             case .didTapDone:
                 if components.isEmpty {
@@ -36,13 +41,16 @@ class TaskInformationPresenter: AssemblablePresenter {
                     break
                 }
                 
-                if packageName.isEmpty {
+                if taskName.isEmpty {
                     SPAlert.present(title: "Enter task's name, please", preset: .error)
                     break
                 }
                 
+                let task = Task(name: self.taskName, baseComponents: self.components.baseComponents)
+                interfaceContract.endModule(task: task)
+                
             case .didChangeName(let newValue):
-                self.packageName = newValue
+                self.taskName = newValue
                 
             case .didDeleteComponentAtIndex(let index):
                 self.components.remove(at: index)
@@ -57,17 +65,17 @@ class TaskInformationPresenter: AssemblablePresenter {
     
     func start() {
         interfaceContract.displayCompnents(components)
-        interfaceContract.displayTaskName(packageName)
+        interfaceContract.displayTaskName(taskName)
     }
     
     required init() {}
             
     init(task: Task) {
-        self.packageName = task.name
+        self.taskName = task.name
         self.components = task.components
     }
     
-    private var packageName: String = ""
+    private var taskName: String = ""
     private var components: Components = []
 }
 
