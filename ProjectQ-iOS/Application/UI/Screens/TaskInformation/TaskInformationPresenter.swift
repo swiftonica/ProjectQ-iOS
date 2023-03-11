@@ -26,6 +26,7 @@ class TaskInformationModule: SUIAssembler2<
 
 protocol TaskInformationModulePublicInterface {
     func addComponent(_ component: Component)
+    func updateComponent(_ component: Component, at index: Int)
 }
 
 class TaskInformationPresenter: AssemblablePresenter {
@@ -83,6 +84,13 @@ extension TaskInformationPresenter: TaskInformationModulePublicInterface {
     func addComponent(_ component: Component) {
         self.components.append(component)
         self.interfaceContract.addComponent(component)
+        SPAlert.present(title: "Success", message: "Have added component to you task", preset: .done)
+    }
+    
+    func updateComponent(_ component: Component, at index: Int) {
+        self.components.remove(at: index)
+        self.components.insert(component, at: index)
+        self.interfaceContract.displayCompnents(components)
         SPAlert.present(title: "Success", message: "Have added component to you task", preset: .done)
     }
 }

@@ -38,6 +38,7 @@ struct TaskInformationView: View, AssemblableView, Completionable {
         case addComponent
         
         case selectedComponent(Component)
+        case selectedComponentIndex(Int)
     }
     
     var eventOutput: ((EventOutputType) -> Void)?
@@ -100,6 +101,7 @@ private extension TaskInformationView {
                     ZStack {
                         Button("") {
                             completion?(.selectedComponent(components[each]))
+                            completion?(.selectedComponentIndex(each))
                         }
                         Text(components[each].information.name)
                     }

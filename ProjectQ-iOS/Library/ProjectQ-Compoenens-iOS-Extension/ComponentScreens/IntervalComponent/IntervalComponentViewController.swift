@@ -18,6 +18,7 @@ protocol IntervalViewControllerInterfaceContract {
  
 // no presenter. No separate logic
 class IntervalViewController: UIViewController, ViewComponentReturnable {
+    
     var didReturnComponent: ((Component) -> Void)?
     
     init() {
@@ -206,10 +207,10 @@ private extension IntervalViewController {
     }
     
     func setWeekDaysInUI(weekDays: IntervalComponentHandlerInput.WeekDays) {
-        let weekSectionRowIndex = 3
-        self.formVC.form.remove(at: weekSectionRowIndex)
-        addWeeakDaysSection(weekDays)
-        weekSwitchRow.value = true
+//        let weekSectionRowIndex = 3
+//        self.formVC.form.remove(at: weekSectionRowIndex)
+//        addWeeakDaysSection(weekDays)
+//        weekSwitchRow.value = true
         
         self.weekDays = weekDays // [!] <- set state
     }

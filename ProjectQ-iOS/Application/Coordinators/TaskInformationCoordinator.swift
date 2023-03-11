@@ -26,11 +26,22 @@ class TaskInformationCoordinator: Coordinatable {
         view.completion = {
             event in
             switch event {
+            case .selectedComponentIndex(let index):
+                self.selectedComponentIndex = index // [!] <- set state
+                
             case .addComponent:
                 self.addComponentCoordinator()
                                             
             case .selectedComponent(let component):
-                guard let module = component.module else {
+                let module = component.module() {
+                    component in
+                    self.navigationController.popToViewController(
+                        self.taskInformationModule.view,
+                        animated: true
+                    )
+                    self.taskInformationModule.publicInterface?.updateComponent(component, at: self.selectedComponentIndex)
+                }
+                guard let module = module else {
                     SPAlert.present(title: "Error", message: "Screen doesn't exist", preset: .error)
                     break
                 }
@@ -40,8 +51,8 @@ class TaskInformationCoordinator: Coordinatable {
                 self.completion?(.finsish(task))
             }
         }
-        let module = TaskInformationModule(view: view, task: task).module
         
+        let module = TaskInformationModule(view: view, task: task).module
         let isMineController = navigationController == nil
         if isMineController {
             self.navigationController = UINavigationController()
@@ -68,6 +79,9 @@ class TaskInformationCoordinator: Coordinatable {
         TaskInformationPresenter,
         TaskInformationPresenter
     >!
+    
+    // state
+    private var selectedComponentIndex: Int = 0
 }
 
 private extension TaskInformationCoordinator {

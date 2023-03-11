@@ -20,27 +20,28 @@ class ComponentsCoordinator: Coordinatable {
     var completion: ((_ReturnData) -> Void)?
     
     func start() {
-        let componentsModule = ComponentsModule().module
-        componentsModule.view.rootView.completion = {
+        let componentsModule = ComponentsModule() {
             [unowned self] event in
             switch event {
             case .didChooseComponent(let component):
-                guard let module = component.module else {
+                let module = component.module(delegate: {
+                    component in
+                    self.completion?(.didChooseComponent(component))
+                })
+                
+                guard let module = module else {
                     SPAlert.present(title: "Error", message: "Component Screen is not exist", preset: .error)
                     break
                 }
+                
                 self.navigationController.pushViewController(module.view, animated: true)
                 self.keeper.keepModule(module, forKey: "temp")
                 
-                var view = module.view
-                view.didReturnComponent = {
-                    component in
-                    self.completion?(.didChooseComponent(component))
-                }
-                
             default: break
             }
-        }
+
+        }.module
+
         navigationController.setToolbarHidden(false, animated: false)
         keeper.keepModule(componentsModule, forKey: "components")
         navigationController.pushViewController(componentsModule.view, animated: isAnimated)

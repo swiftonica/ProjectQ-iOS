@@ -48,10 +48,15 @@ extension Array where Element: Component {
 }
    
 extension Component {
-    var module: Module<ViewComponentReturnable & UIViewController, AnyObject, Any>? {
+    func module(delegate: @escaping (Component) -> Void) -> Module<
+        ViewComponentReturnable & UIViewController,
+        AnyObject,
+        Any
+    >? {
         switch self {
         case .interval:
-            let view = IntervalViewController()
+            var view = IntervalViewController()
+            view.didReturnComponent = delegate
             if let data = self.input {
                 view.configureData(data)
             }

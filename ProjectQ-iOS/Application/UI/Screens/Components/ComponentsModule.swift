@@ -10,8 +10,10 @@ import Foundation
 class ComponentsModule: SUIAssembler2<
     ComponentsView, ComponentsPresenter, ComponentsModulePublicInterface
 > {
-    init() {
+    init(delegate: @escaping (ComponentsView.DelegateEventType) -> Void) {
         let presenter = ComponentsPresenter()
-        super.init(ComponentsView(), presenter, presenter)
+        var view = ComponentsView()
+        view.completion = delegate
+        super.init(view, presenter, presenter)
     }
 }
