@@ -16,7 +16,7 @@ protocol IntervalViewControllerInterfaceContract {
     func setIntervalType(_ intervalType: IntervalComponentHandlerInput.IntervalType)
 }
  
-// no presenter. No separate logic
+// no presenter. No separate logic. Honestly, I hate this class
 class IntervalViewController: UIViewController, ViewComponentReturnable {
     
     var didReturnComponent: ((Component) -> Void)?
@@ -47,8 +47,23 @@ class IntervalViewController: UIViewController, ViewComponentReturnable {
     // stateless
     private let formVC = FormViewController(style: .insetGrouped)
 
-    private let weekSwitchRow = SwitchRow("use.weeks") { $0.title = "Use weeks" }
-    private let intervalSwitchRow = SwitchRow("interval.section") { $0.title = "User interval" }
+    private lazy var weekSwitchRow = SwitchRow("use.weeks") {
+        $0.title = "Use weeks"
+    }.onChange {
+        row in
+        if row.value ?? false {
+            self.intervalType = .byWeek([])
+        }
+    }
+    
+    private lazy var intervalSwitchRow = SwitchRow("interval.section") {
+        $0.title = "Use interval"
+    }.onChange {
+        row in
+        if row.value ?? false {
+            self.intervalType = .interval(0)
+        }
+    }
     
     private lazy var timeRow =  TimeInlineRow() {
         $0.title = "Time of task"
@@ -65,6 +80,10 @@ class IntervalViewController: UIViewController, ViewComponentReturnable {
             }
             return !(row.value ?? false)
         }
+    }.onChange {
+        row in
+        
+        self.intervalValue = Int(row.value ?? "0")!
     }
 
     private lazy var interfaceContract = self
@@ -74,7 +93,7 @@ class IntervalViewController: UIViewController, ViewComponentReturnable {
     private var weekDays: [IntervalComponentHandlerInput.WeekDay] = []
     private var intervalType: IntervalComponentHandlerInput.IntervalType = .interval(0)
 
-    private var taskTime = Date()
+    private var taskTime: Date? = nil
 }
 
 extension IntervalViewController: IntervalViewControllerInterfaceContract {
@@ -95,9 +114,28 @@ extension IntervalViewController: IntervalViewControllerInterfaceContract {
 
 private extension IntervalViewController {
     @objc private func doneButtonDidTap() {
+        guard let _taskTime = self.taskTime else {
+            return SPAlert.present(title: "Error", message: "You shoud choose time", preset: .error)
+        }
+        
+        let _intervalType: IntervalComponentHandlerInput.IntervalType
+        switch self.intervalType {
+        case .byWeek(_):
+            _intervalType = .byWeek(self.weekDays)
+            if self.weekDays.isEmpty {
+                return SPAlert.present(title: "Error", message: "You have to choose at least one day", preset: .error)
+            }
+            
+        case .interval(_):
+            _intervalType = .interval(self.intervalValue)
+            if intervalValue == 0 {
+                return SPAlert.present(title: "Error", message: "You have to choose at least 1 day interval", preset: .error)
+            }
+        }
+
         let input = IntervalComponentHandlerInput(
-            intervalType: self.intervalType,
-            time: self.taskTime,
+            intervalType: _intervalType,
+            time: _taskTime,
             lastDate: Date()
         )
         
@@ -135,9 +173,8 @@ private extension IntervalViewController {
             if (self.intervalSwitchRow.value ?? false), (self.weekSwitchRow.value ?? false) {
                 self.intervalSwitchRow.value = false
                 self.intervalSwitchRow.cell.switchControl.isOn = false
-                
-                self.intervalType = .byWeek(self.weekDays) // [!] <- set state
             }
+            self.intervalType = .byWeek(self.weekDays) // [!] <- set state
         }
         
         intervalSwitchRow.onChange {
@@ -145,9 +182,8 @@ private extension IntervalViewController {
             if (self.intervalSwitchRow.value ?? false), (self.weekSwitchRow.value ?? false) {
                 self.weekSwitchRow.value = false
                 self.weekSwitchRow.cell.switchControl.isOn = false
-                
-                self.intervalType = .interval(self.intervalValue) // [!] <- set state
             }
+            self.intervalType = .interval(self.intervalValue) // [!] <- set state
         }
     }
     
@@ -188,7 +224,6 @@ private extension IntervalViewController {
                 } else {
                     cell.value = false
                 }
-                
             }
             .onChange { cell in
                 if cell.value ?? false {
@@ -202,21 +237,24 @@ private extension IntervalViewController {
                     }
                     self.weekDays.remove(at: someIndex)
                 }
+                print(self.weekDays)
             }
         }
     }
     
     func setWeekDaysInUI(weekDays: IntervalComponentHandlerInput.WeekDays) {
-//        let weekSectionRowIndex = 3
-//        self.formVC.form.remove(at: weekSectionRowIndex)
-//        addWeeakDaysSection(weekDays)
-//        weekSwitchRow.value = true
+        let weekSectionRowIndex = 2
+        self.formVC.form.remove(at: weekSectionRowIndex)
+        addWeeakDaysSection(weekDays)
+        weekSwitchRow.value = true
         
         self.weekDays = weekDays // [!] <- set state
     }
         
     func setInterval(_ interval: Int) {
         self.intervalValueRow.value = String(interval)
+        
+        self.intervalSwitchRow.value = true
         self.intervalValue = interval // [!] <- set state
     }
 }
