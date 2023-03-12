@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "079E48C6-223A-4AB6-87D7-5EF1AB270940"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "module"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "079E48C6-223A-4AB6-87D7-5EF1AB270940 - 3d3fd3b8c1347820"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ProjectQ_iOS.SUIAssembler2.module.getter : ModuleAssembler.Module&lt;ProjectQ_iOS.AssemblableUIHostingViewController&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1, &#x3c4;_0_2&gt;"
-                  moduleName = "ProjectQ-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmytroostapchenko/Documents/programming/XcodeProjects/ProjectQ-iOS/ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "518">
-               </Location>
-               <Location
-                  uuid = "079E48C6-223A-4AB6-87D7-5EF1AB270940 - 3d3fd3b8c1347820"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ProjectQ_iOS.SUIAssembler2.module.getter : ModuleAssembler.Module&lt;ProjectQ_iOS.AssemblableUIHostingViewController&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1, &#x3c4;_0_2&gt;"
-                  moduleName = "ProjectQ-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmytroostapchenko/Documents/programming/XcodeProjects/ProjectQ-iOS/ProjectQ-iOS/Library/ConnectSUI/ConnectSUI.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "1161">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6B0B104B-D579-4E74-83D0-F73E4E5ABA7A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -161,6 +113,70 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "init(task:navigationController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "875FD2F2-48F8-4968-BF4B-5C63C151E9EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Application/UI/Screens/TaskInformation/TaskInformationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "displayCompnents(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06FED3C2-4232-4C92-A275-3A8936B5D19C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Application/UI/Screens/TaskInformation/TaskInformationPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "addComponent(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53257232-7A0F-4AB4-88D1-293FEA69F8DD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Application/Coordinators/TaskInformationCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "addComponentCoordinator()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7059B87C-5713-490F-BEF9-E32614EC5608"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Application/Coordinators/TaskInformationCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "addComponentCoordinator()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

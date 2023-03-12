@@ -55,7 +55,7 @@ extension Component {
     >? {
         switch self {
         case .interval:
-            var view = IntervalViewController()
+            let view = IntervalViewController()
             view.didReturnComponent = delegate
             if let data = self.input {
                 view.configureData(data)
@@ -95,7 +95,6 @@ extension Component {
     }
 }
 
-
 extension IntervalComponentHandlerInput.IntervalType {
     var uiDescription: String {
         switch self {
@@ -103,7 +102,15 @@ extension IntervalComponentHandlerInput.IntervalType {
             return "Each \(interval) days"
             
         case .byWeek(let days):
-            return "Each \(days)"
+            let string = days.reduce("") {
+                result, element in
+                if result == "" {
+                    return "\(element.name)"
+                } else {
+                    return "\(result), \(element.name)"
+                }
+            }
+            return "Each " + string
         }
     }
 }

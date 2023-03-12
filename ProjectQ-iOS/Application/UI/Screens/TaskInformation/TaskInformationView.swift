@@ -89,34 +89,41 @@ private extension TaskInformationView {
             header: Text("Components")
         ) {
             if components.isEmpty {
-                Text("No Components")
-                    .frame(height: 100)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 23, weight: .bold))
-                    .foregroundColor(.secondary)
+                EmptyView()
             }
             else {
-                ForEach(0..<components.count, id: \.self) { each in
-                    ZStack {
-                        Button("") {
-                            completion?(.selectedComponent(components[each]))
-                            completion?(.selectedComponentIndex(each))
-                        }
-                        
-                        HStack {
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text(components[each].information.name)
-                                    .font(.headline)
-                                Text(components[each].uiDescription)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                            Spacer()
-                        }
-                    }
+                ForEach(0 ..< components.count, id: \.self) { each in
+                    ComponentCell(components[each], index: each)
                 }
                 .onDelete(perform: deleteAction)
+            }
+        }
+    }
+    
+    func EmptyView() -> some View {
+        Text("No Components")
+            .frame(height: 100)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .multilineTextAlignment(.center)
+            .font(.system(size: 23, weight: .bold))
+            .foregroundColor(.secondary)
+    }
+    
+    func ComponentCell(_ component: Component, index: Int) -> some View {
+        ZStack {
+            Button("") {
+                completion?(.selectedComponent(component))
+                completion?(.selectedComponentIndex(index))
+            }
+            HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(component.information.name)
+                        .font(.headline)
+                    Text(component.uiDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Spacer()
             }
         }
     }
