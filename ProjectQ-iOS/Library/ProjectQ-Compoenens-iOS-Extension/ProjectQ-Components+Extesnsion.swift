@@ -9,6 +9,19 @@ import Foundation
 import ProjectQ_Components
 import UIKit
 import ModuleAssembler
+import SwiftUI
+
+class ComponentableHostingViewController<ViewType: View & ViewComponentReturnable>: UIHostingController<ViewType>, ViewComponentReturnable {
+    var didReturnComponent: ((ProjectQ_Components.Component) -> Void)? {
+        didSet {
+            rootView.didReturnComponent = self.didReturnComponent
+        }
+    }
+    
+    func configureData(_ data: Data) {
+        rootView.configureData(data)
+    }
+}
 
 protocol ViewComponentReturnable {
     var didReturnComponent: ((Component) -> Void)? { get set }
@@ -59,6 +72,18 @@ extension Component {
             view.didReturnComponent = delegate
             if let data = self.input {
                 view.configureData(data)
+            }
+            return Module(
+                view: view,
+                presenter: EmptyPresenter(),
+                publicInterface: nil
+            )
+            
+        case .description:
+            let view = ComponentableHostingViewController(rootView: DescriptionComponentView())
+            view.rootView.didReturnComponent = delegate
+            if let data = self.input {
+                view.rootView.configureData(data)
             }
             return Module(
                 view: view,

@@ -31,6 +31,7 @@
 		3EA6AAE6299EC3DE0086CCB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6AAE5299EC3DE0086CCB0 /* Assets.xcassets */; };
 		3EA6AAE9299EC3DE0086CCB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6AAE7299EC3DE0086CCB0 /* LaunchScreen.storyboard */; };
 		3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C47629A3D430004B2449 /* ClosableNavigationController.swift */; };
+		3EDCE5F729BE229F00BDDDA2 /* DescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDCE5F629BE229F00BDDDA2 /* DescriptionComponentView.swift */; };
 		3EDE0DD829A8EDEB008075C0 /* PackageInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE0DD729A8EDEB008075C0 /* PackageInformationView.swift */; };
 		3EE1F91629A0F87600BBB85E /* PackagesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1F91529A0F87600BBB85E /* PackagesModule.swift */; };
 		3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1F91829A0FA3300BBB85E /* LocalPackageService.swift */; };
@@ -63,6 +64,7 @@
 		3EA6AAE8299EC3DE0086CCB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EA6AAEA299EC3DE0086CCB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC2C47629A3D430004B2449 /* ClosableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosableNavigationController.swift; sourceTree = "<group>"; };
+		3EDCE5F629BE229F00BDDDA2 /* DescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponentView.swift; sourceTree = "<group>"; };
 		3EDE0DD729A8EDEB008075C0 /* PackageInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationView.swift; sourceTree = "<group>"; };
 		3EE1F91529A0F87600BBB85E /* PackagesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesModule.swift; sourceTree = "<group>"; };
 		3EE1F91829A0FA3300BBB85E /* LocalPackageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPackageService.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				3E9041C129B1336D004905F7 /* IntervalComponent */,
+				3EDCE5F629BE229F00BDDDA2 /* DescriptionComponentView.swift */,
 			);
 			path = ComponentScreens;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				3E4BA80A29AC8DBC00BDD45A /* AllComponentsService.swift in Sources */,
 				3EF02B1F29A0D7EC00F2317A /* PackagesViewController.swift in Sources */,
 				3E4BA80829AC8D1700BDD45A /* ComponentsPresenter.swift in Sources */,
+				3EDCE5F729BE229F00BDDDA2 /* DescriptionComponentView.swift in Sources */,
 				3E4C516929AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift in Sources */,
 				3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */,
 				3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */,
