@@ -158,24 +158,8 @@
             filePath = "ProjectQ-iOS/Application/Coordinators/TaskInformationCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "addComponentCoordinator()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7059B87C-5713-490F-BEF9-E32614EC5608"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjectQ-iOS/Application/Coordinators/TaskInformationCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "addComponentCoordinator()"
             landmarkType = "7">
          </BreakpointContent>
