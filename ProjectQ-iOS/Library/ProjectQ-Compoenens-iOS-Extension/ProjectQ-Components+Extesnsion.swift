@@ -115,6 +115,16 @@ extension Component {
             let components = calendar.dateComponents([.hour, .minute], from: date)
             let time = "\(components.hour ?? 0):\(components.minute ?? 0)"
             return "Time: \(time), \(structInput.intervalType.uiDescription)"
+            
+        case .description:
+            guard
+                let _input = self.input,
+                let structInput = try? JSONDecoder().decode(DescriptionComponentHandler.Input.self, from: _input)
+            else {
+                return ""
+            }
+            return structInput.description
+            
         default: return ""
         }
     }
