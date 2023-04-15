@@ -8,7 +8,7 @@
 import Foundation
 import Eureka
 import UIKit
-import ProjectQ_Components
+import ProjectQ_Components2
 import SPAlert
 
 protocol IntervalViewControllerInterfaceContract {
@@ -104,6 +104,8 @@ extension IntervalViewController: IntervalViewControllerInterfaceContract {
             
         case .interval(let interval):
             self.setInterval(interval)
+        
+        default: break
         }
     }
     
@@ -118,7 +120,7 @@ private extension IntervalViewController {
             return SPAlert.present(title: "Error", message: "You shoud choose time", preset: .error)
         }
         
-        let _intervalType: IntervalComponentHandlerInput.IntervalType
+        var _intervalType: IntervalComponentHandlerInput.IntervalType = .interval(0)
         switch self.intervalType {
         case .byWeek(_):
             _intervalType = .byWeek(self.weekDays)
@@ -131,12 +133,13 @@ private extension IntervalViewController {
             if intervalValue == 0 {
                 return SPAlert.present(title: "Error", message: "You have to choose at least 1 day interval", preset: .error)
             }
+            
+        default: break
         }
 
         let input = IntervalComponentHandlerInput(
             intervalType: _intervalType,
-            time: _taskTime,
-            lastDate: Date()
+            time: _taskTime
         )
         
         let encoder = JSONEncoder()
@@ -145,7 +148,7 @@ private extension IntervalViewController {
         }
         
         didReturnComponent?(
-            .interval.inputed(data)
+            .interval(input: data)
         )
     }
     

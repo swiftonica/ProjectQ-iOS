@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 import NavigationLayer
-import ProjectQ_Components
+import ProjectQ_Components2
 import ModuleAssembler
 
 protocol PackagesViewControllerPublicInterface: AnyObject {
@@ -24,16 +24,16 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
     }
     
     enum DelegateEvent {
-        case didSelectPackage(TaskPackage)
+        case didSelectPackage(Package)
         case didSelectIndex(Int)
         
-        case didEditPackage(TaskPackage)
-        case didConnect(TaskPackage)
+        case didEditPackage(Package)
+        case didConnect(Package)
     }
     
     enum State {
         case loading
-        case results(TaskPackages)
+        case results(Packages)
         case noResults
     }
     
@@ -66,7 +66,7 @@ class PackagesViewController: UIViewController, Completionable, AssemblableView 
     }
     
     // state
-    private var packages: [TaskPackage] = []
+    private var packages: [Package] = []
     
     // stateless
     private let loaderView = UIActivityIndicatorView(style: .large)

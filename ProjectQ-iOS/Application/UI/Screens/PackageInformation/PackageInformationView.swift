@@ -7,18 +7,18 @@
 
 import SwiftUI
 import Combine
-import ProjectQ_Components
+import ProjectQ_Components2
 import ModuleAssembler
 import NavigationLayer
 
 fileprivate class PackageInformationViewViewModel: ObservableObject {
     @Published var packageName: String = ""
-    @Published var tasks: Tasks = []
+    @Published var tasks: [Task] = []
 }
 
 protocol PackageInformationViewInterfaceContract {
     func setPackageName(_ name: String)
-    func showTasks(_ tasks: Tasks)
+    func showTasks(_ tasks: [Task])
     
     func removeTask(at index: Int)
 }
@@ -33,11 +33,11 @@ struct PackageInformationView: View, AssemblableView, Completionable {
         case didEnterName(String)
         
         case didShowNoResults
-        case didShowContent(Tasks)
+        case didShowContent([Task])
     }
     
     enum DelegateEventType {
-        case finish(TaskPackage)
+        case finish(Package)
         case addTask
         case didSelectTask(Task)
         case didSelectIndex(Int)
@@ -59,7 +59,7 @@ struct PackageInformationView: View, AssemblableView, Completionable {
                 .font(.system(size: 17, weight: .bold))
                 Spacer()
                 Button("Done", action: {
-                    let package = TaskPackage(tasks: viewModel.tasks, name: viewModel.packageName)
+                    let package = Package(name: viewModel.packageName, tasks: viewModel.tasks)
                     self.completion?(.finish(package))
                 })
             }
@@ -82,7 +82,7 @@ private extension PackageInformationView {
         }
     }
     
-    func Section2(tasks: Tasks) -> some View {
+    func Section2(tasks: [Task]) -> some View {
         Section(
             header: Text("Tasks")
         ) {
@@ -135,7 +135,7 @@ extension PackageInformationView: PackageInformationViewInterfaceContract {
         viewModel.packageName = name
     }
     
-    func showTasks(_ tasks: Tasks) {
+    func showTasks(_ tasks: [Task]) {
         viewModel.tasks.removeAll()
         viewModel.tasks = tasks
     }

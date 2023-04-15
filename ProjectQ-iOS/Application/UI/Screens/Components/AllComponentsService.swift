@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import ProjectQ_Components
+import ProjectQ_Components2
 
 class AllComponentsService {
-    func getAllComponents() -> Components{
+    func getAllComponents() -> [Component] {
         return Component.allComponents
     }
 }

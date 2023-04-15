@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import ProjectQ_Components
+import ProjectQ_Components2
 import SPAlert
 import UIKit
 
@@ -17,10 +17,10 @@ fileprivate class DescriptionComponentViewViewModel: ObservableObject {
 
 struct DescriptionComponentView: View, ViewComponentReturnable {
   
-    var didReturnComponent: ((ProjectQ_Components.Component) -> Void)?
+    var didReturnComponent: ((Component) -> Void)?
     
     func configureData(_ data: Data) {
-        guard let inputStruct = try? JSONDecoder().decode(DescriptionComponentHandler.Input.self, from: data) else {
+        guard let inputStruct = try? JSONDecoder().decode(DescriptionComponentHandlerInput.self, from: data) else {
             isAlertPresentet = true
             return
         }
@@ -31,13 +31,11 @@ struct DescriptionComponentView: View, ViewComponentReturnable {
     @ObservedObject private var viewModel = DescriptionComponentViewViewModel()
     
     var body: some View {
-        List {
-            Section(
-                header: Text("Enter description")
-            ) {
-                MultilineTextField("Enter text", text: $viewModel.descriptionValue)
-            }
+        Form {
+            MultilineTextField("Enter description", text: $viewModel.descriptionValue)
+                .frame(height: 50)
         }
+        
         .SPAlert(
             isPresent: $isAlertPresentet,
             alertView: .init(
@@ -46,16 +44,16 @@ struct DescriptionComponentView: View, ViewComponentReturnable {
                 preset: .error)
         )
         .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
+            ToolbarItemGroup {
                 Button("Done", action: {
                     guard let data = try? JSONEncoder().encode(
-                        DescriptionComponentHandler.Input(description: self.viewModel.descriptionValue)
+                        DescriptionComponentHandlerInput(description: self.viewModel.descriptionValue)
                     ) else {
                         isAlertPresentet = true
                         return
                     }
                     didReturnComponent?(
-                        .description.inputed(data)
+                        .description(input: data)
                     )
                 })
                 .font(.system(size: 17, weight: .bold))

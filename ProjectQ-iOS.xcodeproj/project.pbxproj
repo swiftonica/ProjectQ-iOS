@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BF929A9243D00D27B7C /* ConnectSUI.swift */; };
 		3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */; };
+		3E2E4BEE29E71F55008ABBC9 /* ProjectQ-Components2 in Frameworks */ = {isa = PBXBuildFile; productRef = 3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */; };
 		3E3195D129BE682500F1343D /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3195D029BE682500F1343D /* MultilineTextField.swift */; };
 		3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */; };
 		3E4BA80629AC8B3500BDD45A /* ComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80529AC8B3500BDD45A /* ComponentsView.swift */; };
@@ -24,7 +25,6 @@
 		3E9041C429B13788004905F7 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9041C329B13788004905F7 /* Eureka */; };
 		3E9041C729B137B3004905F7 /* IntervalComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041C629B137B3004905F7 /* IntervalComponentViewController.swift */; };
 		3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242A299F9A9C00C6D95F /* NavigationLayer */; };
-		3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242E299F9AF300C6D95F /* ProjectQ-Components */; };
 		3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E2431299F9B1000C6D95F /* AboutAppViewController */; };
 		3E9E2434299F9B9F00C6D95F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */; };
 		3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */; };
@@ -82,13 +82,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EE1F91C29A0FE8D00BBB85E /* SPAlert in Frameworks */,
+				3E2E4BEE29E71F55008ABBC9 /* ProjectQ-Components2 in Frameworks */,
 				3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */,
 				3EF02B2929A0E63300F2317A /* ModuleAssembler in Frameworks */,
 				3E9041C429B13788004905F7 /* Eureka in Frameworks */,
 				3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */,
 				3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */,
 				3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */,
-				3E9E242F299F9AF300C6D95F /* ProjectQ-Components in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,12 +301,12 @@
 			packageProductDependencies = (
 				3E8A6A4E299EC58D00380C72 /* SnapKit */,
 				3E9E242A299F9A9C00C6D95F /* NavigationLayer */,
-				3E9E242E299F9AF300C6D95F /* ProjectQ-Components */,
 				3E9E2431299F9B1000C6D95F /* AboutAppViewController */,
 				3EF02B2829A0E63300F2317A /* ModuleAssembler */,
 				3EE1F91B29A0FE8D00BBB85E /* SPAlert */,
 				3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */,
 				3E9041C329B13788004905F7 /* Eureka */,
+				3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */,
 			);
 			productName = "ProjectQ-iOS";
 			productReference = 3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */;
@@ -339,12 +339,12 @@
 			packageReferences = (
 				3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */,
-				3E9E242D299F9AF300C6D95F /* XCRemoteSwiftPackageReference "ProjectQ-Components" */,
 				3E9E2430299F9B0F00C6D95F /* XCRemoteSwiftPackageReference "AboutAppViewController" */,
 				3EF02B2729A0E63300F2317A /* XCRemoteSwiftPackageReference "ModuleAssembler" */,
 				3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */,
 				3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */,
 				3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */,
+				3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */,
 			);
 			productRefGroup = 3EA6AADA299EC3DB0086CCB0 /* Products */;
 			projectDirPath = "";
@@ -610,6 +610,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftonica/ProjectQ-Components2";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -629,14 +637,6 @@
 		3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftonica/NavigationLayer";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		3E9E242D299F9AF300C6D95F /* XCRemoteSwiftPackageReference "ProjectQ-Components" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftonica/ProjectQ-Components";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -677,6 +677,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */;
+			productName = "ProjectQ-Components2";
+		};
 		3E8A6A4E299EC58D00380C72 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -691,11 +696,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E9E2429299F9A9B00C6D95F /* XCRemoteSwiftPackageReference "NavigationLayer" */;
 			productName = NavigationLayer;
-		};
-		3E9E242E299F9AF300C6D95F /* ProjectQ-Components */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3E9E242D299F9AF300C6D95F /* XCRemoteSwiftPackageReference "ProjectQ-Components" */;
-			productName = "ProjectQ-Components";
 		};
 		3E9E2431299F9B1000C6D95F /* AboutAppViewController */ = {
 			isa = XCSwiftPackageProductDependency;

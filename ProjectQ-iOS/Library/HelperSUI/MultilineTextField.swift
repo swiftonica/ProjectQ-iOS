@@ -37,9 +37,6 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         if uiView.text != self.text {
             uiView.text = self.text
         }
-        if uiView.window != nil, !uiView.isFirstResponder {
-            uiView.becomeFirstResponder()
-        }
         UITextViewWrapper.recalculateHeight(view: uiView, result: $calculatedHeight)
     }
 
@@ -100,7 +97,7 @@ struct MultilineTextField: View {
     @State private var dynamicHeight: CGFloat = 100
     @State private var showingPlaceholder = false
 
-    init (_ placeholder: String = "", text: Binding<String>, onCommit: (() -> Void)? = nil) {
+    init(_ placeholder: String = "", text: Binding<String>, onCommit: (() -> Void)? = nil) {
         self.placeholder = placeholder
         self.onCommit = onCommit
         self._text = text
@@ -123,3 +120,4 @@ struct MultilineTextField: View {
         }
     }
 }
+

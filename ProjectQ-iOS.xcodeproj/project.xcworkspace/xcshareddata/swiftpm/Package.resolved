@@ -46,12 +46,12 @@
       }
     },
     {
-      "identity" : "projectq-components",
+      "identity" : "projectq-components2",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftonica/ProjectQ-Components",
+      "location" : "https://github.com/swiftonica/ProjectQ-Components2",
       "state" : {
         "branch" : "master",
-        "revision" : "22b9bf71bb6d89ec2e43b3edc10c4ca5d9395cba"
+        "revision" : "ce1b122a339364fc10407db20b7758f53a892d8d"
       }
     },
     {

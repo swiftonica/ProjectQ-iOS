@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ProjectQ_Components
+import ProjectQ_Components2
 
 class LocalPackagesService {
     private let userDefaults = UserDefaults.standard
@@ -21,28 +21,29 @@ class LocalPackagesService {
 }
 
 extension LocalPackagesService {
-    func getPackages() -> Result<TaskPackages, LocalPackagesService.ServiceError> {
+    func getPackages() -> Result<[Package], LocalPackagesService.ServiceError> {
         guard let data = UserDefaults.standard.data(forKey: key) else {
             return .failure(.wrongKey)
         }
-        guard let packages = try? JSONDecoder().decode(TaskPackages.self, from: data) else {
+        guard let codablePackages = try? JSONDecoder().decode([CodablePackage].self, from: data) else {
             return .failure(.decodingFailure)
         }
         
-        if packages.isEmpty {
+        if codablePackages.isEmpty {
             return .failure(.noResults)
         }
         
-        return .success(packages)
+        return .success(codablePackages.packages)
     }
 
     func savePackages(
-        _ packages: TaskPackages,
+        _ packages: [Package],
         errorHandler: (
             (LocalPackagesService.ServiceError) -> Void
         )?
     ) {
-        guard let data = try? JSONEncoder().encode(packages) else {
+        let codablePackage = packages.codablePackages
+        guard let data = try? JSONEncoder().encode(codablePackage) else {
             errorHandler?(.archiveFailure)
             return
         }

@@ -7,7 +7,7 @@
 
 import Foundation
 import ModuleAssembler
-import ProjectQ_Components
+import ProjectQ_Components2
 
 protocol ComponentsModulePublicInterface {}
 

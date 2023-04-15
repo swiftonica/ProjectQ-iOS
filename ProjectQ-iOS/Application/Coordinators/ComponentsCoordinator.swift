@@ -8,7 +8,7 @@
 import Foundation
 import NavigationLayer
 import UIKit
-import ProjectQ_Components
+import ProjectQ_Components2
 import ModuleAssembler
 import SPAlert
 

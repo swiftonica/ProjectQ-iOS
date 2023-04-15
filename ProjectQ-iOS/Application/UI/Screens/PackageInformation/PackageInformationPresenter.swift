@@ -8,7 +8,7 @@
 import Foundation
 import ModuleAssembler
 import SwiftUI
-import ProjectQ_Components
+import ProjectQ_Components2
 import SPAlert
 
 class PackageInformationModule: SUIAssembler2<
@@ -16,7 +16,7 @@ class PackageInformationModule: SUIAssembler2<
     PackageInformationPresenter,
     PackageInformationPublicInterface
 > {
-    init(package: TaskPackage) {
+    init(package: Package) {
         let view = PackageInformationView()
         let presenter = PackageInformationPresenter(package: package)
         super.init(view, presenter, presenter)
@@ -46,10 +46,10 @@ class PackageInformationPresenter: AssemblablePresenter {
     }
     
     required init() {
-        package = .init(tasks: [], name: "")
+        package = .init(name: "", tasks: [])
     }
     
-    init(package: TaskPackage) {
+    init(package: Package) {
         self.package = package
         self.tasks = package.tasks
     }
@@ -59,12 +59,12 @@ class PackageInformationPresenter: AssemblablePresenter {
         interfaceContract.showTasks(package.tasks)
     }
     
-    private let package: TaskPackage
-    private var tasks: Tasks = []
+    private let package: Package
+    private var tasks: [Task] = []
 }
 
 extension PackageInformationPresenter: PackageInformationPublicInterface {
-    func updateTask(at index: Int, task: ProjectQ_Components.Task) {
+    func updateTask(at index: Int, task: Task) {
         tasks.remove(at: index)
         tasks.insert(task, at: index)
         SPAlert.present(

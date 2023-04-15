@@ -7,19 +7,19 @@
 
 import SwiftUI
 import Combine
-import ProjectQ_Components
+import ProjectQ_Components2
 import ModuleAssembler
 import NavigationLayer
 
 protocol TaskInformationInterfaceContract {
     func addComponent(_ component: Component)
     func displayTaskName(_ name: String)
-    func displayCompnents(_ components: Components)
+    func displayCompnents(_ components: [Component])
     func endModule(task: Task)
 }
 
 fileprivate class TaskInformationViewViewModel: ObservableObject {
-    @Published var components: Components = []
+    @Published var components: [Component] = []
     @Published var taskName: String = ""
 }
 
@@ -84,7 +84,7 @@ private extension TaskInformationView {
         }
     }
     
-    func Section2(components: Components) -> some View {
+    func Section2(components: [Component]) -> some View {
         Section(
             header: Text("Components")
         ) {
@@ -139,12 +139,12 @@ extension TaskInformationView: TaskInformationInterfaceContract {
         viewModel.taskName = name
     }
     
-    func displayCompnents(_ components: ProjectQ_Components.Components) {
+    func displayCompnents(_ components: Components) {
         viewModel.components.removeAll()
         viewModel.components = components
     }
     
-    func addComponent(_ component: ProjectQ_Components.Component) {
+    func addComponent(_ component: Component) {
         viewModel.components.append(component)
     }
     

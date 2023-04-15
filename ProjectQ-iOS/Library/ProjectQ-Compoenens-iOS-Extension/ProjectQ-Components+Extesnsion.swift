@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import ProjectQ_Components
+import ProjectQ_Components2
 import UIKit
 import ModuleAssembler
 import SwiftUI
 
 class ComponentableHostingViewController<ViewType: View & ViewComponentReturnable>: UIHostingController<ViewType>, ViewComponentReturnable {
-    var didReturnComponent: ((ProjectQ_Components.Component) -> Void)? {
+    var didReturnComponent: ((Component) -> Void)? {
         didSet {
             rootView.didReturnComponent = self.didReturnComponent
         }
@@ -40,7 +40,7 @@ struct HashableComponent: Hashable {
     }
     
     var identifier: String {
-        return String(self.component.information.componentId.id)
+        return String(self.component.id.pureNumber)
     }
     
     public static func == (lhs: HashableComponent, rhs: HashableComponent) -> Bool {
@@ -70,9 +70,8 @@ extension Component {
         case .interval:
             let view = IntervalViewController()
             view.didReturnComponent = delegate
-            if let data = self.input {
-                view.configureData(data)
-            }
+            view.configureData(self.handler.input)
+            
             return Module(
                 view: view,
                 presenter: EmptyPresenter(),
@@ -82,9 +81,8 @@ extension Component {
         case .description:
             let view = ComponentableHostingViewController(rootView: DescriptionComponentView())
             view.rootView.didReturnComponent = delegate
-            if let data = self.input {
-                view.rootView.configureData(data)
-            }
+            view.rootView.configureData(self.handler.input)
+            
             return Module(
                 view: view,
                 presenter: EmptyPresenter(),
@@ -96,17 +94,15 @@ extension Component {
     }
 }
 
-extension Task {
-    static let empty = Task(name: "", baseComponents: [])
-}
-
 extension Component {
     var uiDescription: String {
-        switch self.information.componentId {
+        switch self.id {
         case .interval:
             guard
-                let _input = self.input,
-                let structInput = try? JSONDecoder().decode(IntervalComponentHandlerInput.self, from: _input)
+                let structInput = try? JSONDecoder().decode(
+                    IntervalComponentHandlerInput.self,
+                    from: self.handler.input
+                )
             else {
                 return ""
             }
@@ -117,10 +113,7 @@ extension Component {
             return "Time: \(time), \(structInput.intervalType.uiDescription)"
             
         case .description:
-            guard
-                let _input = self.input,
-                let structInput = try? JSONDecoder().decode(DescriptionComponentHandler.Input.self, from: _input)
-            else {
+            guard let structInput = try? JSONDecoder().decode(DescriptionComponentHandlerInput.self, from: self.handler.input) else {
                 return ""
             }
             return structInput.description
@@ -146,6 +139,8 @@ extension IntervalComponentHandlerInput.IntervalType {
                 }
             }
             return "Each " + string
+            
+        default: return "No data..."
         }
     }
 }

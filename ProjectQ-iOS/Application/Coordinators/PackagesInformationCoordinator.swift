@@ -7,14 +7,14 @@
 
 import Foundation
 import NavigationLayer
-import ProjectQ_Components
+import ProjectQ_Components2
 import UIKit
 import SwiftUI
 import ModuleAssembler
 
 class PackagesInformationCoordinator: Coordinatable {
     enum _ReturnData {
-        case finish(TaskPackage)
+        case finish(Package)
     }
     
     var completion: ((_ReturnData) -> Void)?
@@ -23,14 +23,14 @@ class PackagesInformationCoordinator: Coordinatable {
         addPackageInformationModule()
     }
     
-    init(package: TaskPackage) {
+    init(package: Package) {
         self.package = package
     }
     
     // private
     var childCoordinators: [CompletionlessCoordinatable] = []
     private(set) var navigationController = ClosableNavigationController().onlyFirst()
-    private let package: TaskPackage
+    private let package: Package
     
     private enum Modules {
         case components
@@ -89,8 +89,8 @@ private extension PackagesInformationCoordinator {
                 self.add(coordinatable: taskInformationCoordinator)
                 
                 
-            case .finish(let taskPackage):
-                self.completion?(.finish(taskPackage))
+            case .finish(let Package):
+                self.completion?(.finish(Package))
                 
             case .didSelectIndex(let index):
                 self.selectedTaskIndex = index // [!] <- set state

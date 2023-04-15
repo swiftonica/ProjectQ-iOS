@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ProjectQ_Components
+import ProjectQ_Components2
 import NavigationLayer
 import UIKit
 import ModuleAssembler

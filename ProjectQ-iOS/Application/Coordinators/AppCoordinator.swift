@@ -9,7 +9,7 @@ import Foundation
 import NavigationLayer
 import UIKit
 import NativeSettingsViewController
-import ProjectQ_Components
+import ProjectQ_Components2
 import ModuleAssembler
 import SwiftUI
 import SPAlert
@@ -85,7 +85,7 @@ private extension AppCoordinator {
                 )
             }
             
-            self.packagesModule.publicInterface?.addPackage(TaskPackage(tasks: [], name: text))
+            self.packagesModule.publicInterface?.addPackage(Package(name: text, tasks: []))
         }
         
         alertController.addAction(saveAction)
@@ -107,7 +107,7 @@ private extension AppCoordinator {
         ]
     }
     
-    func showPackagesInformationCoordinator(package: TaskPackage) {
+    func showPackagesInformationCoordinator(package: Package) {
         let coordinator = PackagesInformationCoordinator(package: package)
         coordinator.completion = {
             event in

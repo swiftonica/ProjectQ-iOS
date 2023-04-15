@@ -7,7 +7,7 @@
 
 import Foundation
 import ModuleAssembler
-import ProjectQ_Components
+import ProjectQ_Components2
 import SPAlert
 
 class TaskInformationModule: SUIAssembler2<
@@ -28,7 +28,7 @@ protocol TaskInformationModulePublicInterface {
     func addComponent(_ component: Component)
     func updateComponent(_ component: Component, at index: Int)
     
-    func setComponents(_ components: Components)
+    func setComponents(_ components: [Component])
 }
 
 class TaskInformationPresenter: AssemblablePresenter {
@@ -49,7 +49,7 @@ class TaskInformationPresenter: AssemblablePresenter {
                     break
                 }
                 
-                let task = Task(name: self.taskName, baseComponents: self.components.baseComponents)
+                let task = Task(name: self.taskName, components: self.components)
                 interfaceContract.endModule(task: task)
                 
             case .didChangeName(let newValue):
@@ -79,7 +79,7 @@ class TaskInformationPresenter: AssemblablePresenter {
     }
     
     private var taskName: String = ""
-    private var components: Components = []
+    private var components: [Component] = []
 }
 
 extension TaskInformationPresenter: TaskInformationModulePublicInterface {
@@ -96,7 +96,7 @@ extension TaskInformationPresenter: TaskInformationModulePublicInterface {
         SPAlert.present(title: "Success", message: "Have added component to you task", preset: .done)
     }
     
-    func setComponents(_ components: Components) {
+    func setComponents(_ components: [Component]) {
         self.components.removeAll()
         self.components = components
         self.interfaceContract.displayCompnents(components)

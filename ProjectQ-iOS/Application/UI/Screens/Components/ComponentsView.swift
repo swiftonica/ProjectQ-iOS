@@ -7,18 +7,18 @@
 
 import ModuleAssembler
 import NavigationLayer
-import ProjectQ_Components
+import ProjectQ_Components2
 import SwiftUI
 
 class ComponentsViewModel: ObservableObject {
-    @Published var components: Components = []
+    @Published var components: [Component] = []
     @Published var selectedComponent: Component?
 }
 
 protocol ComponentsViewPublicInterface {}
 
 protocol ComponentsViewInterfaceContract {
-    func displayComponents(_ components: Components)
+    func displayComponents(_ components: [Component])
 }
 
 struct ComponentsView: View, AssemblableView, Completionable {
@@ -101,7 +101,7 @@ private extension ComponentsView {
 }
 
 extension ComponentsView: ComponentsViewInterfaceContract {
-    func displayComponents(_ components: Components) {
+    func displayComponents(_ components: [Component]) {
         _viewModel.components.append(contentsOf: components)
     }
 }

@@ -7,12 +7,12 @@
 
 import Foundation
 import ModuleAssembler
-import ProjectQ_Components
+import ProjectQ_Components2
 import SPAlert
 
 protocol PackagesModulePublicInterface {
-    func addPackage(_ package: TaskPackage)
-    func updatePackage(at index: Int, package: TaskPackage)
+    func addPackage(_ package: Package)
+    func updatePackage(at index: Int, package: Package)
 }
 
 class PackageNetworkingPresenter: AssemblablePresenter {
@@ -53,7 +53,7 @@ class PackageNetworkingPresenter: AssemblablePresenter {
     }
     
     private let service = LocalPackagesService()
-    private var packages: TaskPackages = []
+    private var packages: Packages = []
 }
 
 private extension PackageNetworkingPresenter {
@@ -73,14 +73,14 @@ private extension PackageNetworkingPresenter {
 }
 
 extension PackageNetworkingPresenter: PackagesModulePublicInterface {
-    func addPackage(_ package: TaskPackage) {
+    func addPackage(_ package: Package) {
         self.packages.append(package)
         savePackages()
         SPAlert.present(title: "New package was created", preset: .done)
         interfaceContract.setState(.results(packages))
     }
     
-    func updatePackage(at index: Int, package: TaskPackage) {
+    func updatePackage(at index: Int, package: Package) {
         self.packages.remove(at: index)
         self.packages.insert(package, at: index)
         savePackages()
