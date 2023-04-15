@@ -38,7 +38,7 @@ class IntervalViewController: UIViewController, ViewComponentReturnable {
     
     func configureData(_ data: Data) {
         guard let input = try? JSONDecoder().decode(IntervalComponentHandlerInput.self, from: data) else {
-            return SPAlert.present(title: "Error", message: "Failed to parse component data", preset: .error)
+            return
         }
         self.interfaceContract.setTime(input.time)
         self.interfaceContract.setIntervalType(input.intervalType)

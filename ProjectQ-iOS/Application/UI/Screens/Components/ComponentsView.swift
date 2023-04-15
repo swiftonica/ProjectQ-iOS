@@ -64,9 +64,6 @@ private extension ComponentsView {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(component.information.name)
                         .font(.headline)
-                    Text(component.handlerType.rawValue)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
                 }
                 Spacer()
             }
