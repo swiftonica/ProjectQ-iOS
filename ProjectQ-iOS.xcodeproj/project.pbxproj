@@ -11,6 +11,8 @@
 		3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */; };
 		3E2E4BEE29E71F55008ABBC9 /* ProjectQ-Components2 in Frameworks */ = {isa = PBXBuildFile; productRef = 3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */; };
 		3E3195D129BE682500F1343D /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3195D029BE682500F1343D /* MultilineTextField.swift */; };
+		3E3DBE9829EC6AF90053374B /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DBE9729EC6AF90053374B /* AboutAppView.swift */; };
+		3E3DBE9C29EC7B2B0053374B /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DBE9B29EC7B2B0053374B /* SettingsCoordinator.swift */; };
 		3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */; };
 		3E4BA80629AC8B3500BDD45A /* ComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80529AC8B3500BDD45A /* ComponentsView.swift */; };
 		3E4BA80829AC8D1700BDD45A /* ComponentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */; };
@@ -50,6 +52,8 @@
 		3E024BF929A9243D00D27B7C /* ConnectSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSUI.swift; sourceTree = "<group>"; };
 		3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationPresenter.swift; sourceTree = "<group>"; };
 		3E3195D029BE682500F1343D /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		3E3DBE9729EC6AF90053374B /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
+		3E3DBE9B29EC7B2B0053374B /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		3E4BA80129AC169A00BDD45A /* TaskInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationView.swift; sourceTree = "<group>"; };
 		3E4BA80529AC8B3500BDD45A /* ComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsView.swift; sourceTree = "<group>"; };
 		3E4BA80729AC8D1700BDD45A /* ComponentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPresenter.swift; sourceTree = "<group>"; };
@@ -105,6 +109,14 @@
 				3E024BF929A9243D00D27B7C /* ConnectSUI.swift */,
 			);
 			path = ConnectSUI;
+			sourceTree = "<group>";
+		};
+		3E3DBE9629EC6AEA0053374B /* AboutApp */ = {
+			isa = PBXGroup;
+			children = (
+				3E3DBE9729EC6AF90053374B /* AboutAppView.swift */,
+			);
+			path = AboutApp;
 			sourceTree = "<group>";
 		};
 		3E4BA7FE29ABF47D00BDD45A /* TaskInformation */ = {
@@ -258,6 +270,7 @@
 		3EF02B1829A0D60A00F2317A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E3DBE9629EC6AEA0053374B /* AboutApp */,
 				3E4BA80329AC8B1D00BDD45A /* Components */,
 				3E4BA7FE29ABF47D00BDD45A /* TaskInformation */,
 				3EDE0DD629A8EDD4008075C0 /* PackageInformation */,
@@ -273,6 +286,7 @@
 				3EF02B1C29A0D7C400F2317A /* PackagesInformationCoordinator.swift */,
 				3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */,
 				3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */,
+				3E3DBE9B29EC7B2B0053374B /* SettingsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -400,9 +414,11 @@
 				3E9041C029B127B5004905F7 /* ComponentsCoordinator.swift in Sources */,
 				3EE1F91929A0FA3300BBB85E /* LocalPackageService.swift in Sources */,
 				3E9E2434299F9B9F00C6D95F /* AppCoordinator.swift in Sources */,
+				3E3DBE9829EC6AF90053374B /* AboutAppView.swift in Sources */,
 				3EA6AADD299EC3DB0086CCB0 /* AppDelegate.swift in Sources */,
 				3EDE0DD829A8EDEB008075C0 /* PackageInformationView.swift in Sources */,
 				3EF02B2629A0DFB300F2317A /* PackagesNetworkingPresenter.swift in Sources */,
+				3E3DBE9C29EC7B2B0053374B /* SettingsCoordinator.swift in Sources */,
 				3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */,
 				3E9041BE29B1229F004905F7 /* TaskInformationPresenter.swift in Sources */,
 			);

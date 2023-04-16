@@ -8,7 +8,6 @@
 import Foundation
 import NavigationLayer
 import UIKit
-import NativeSettingsViewController
 import ProjectQ_Components2
 import ModuleAssembler
 import SwiftUI
@@ -77,14 +76,14 @@ private extension AppCoordinator {
     }
     
     @objc func settingsDidtap() {
-        let nativeSettingsViewController = NativeSettingsViewController(dataSource: self)
-        nativeSettingsViewController.modalPresentationStyle = .overCurrentContext
-        let nvc = ClosableNavigationController(rootViewController: nativeSettingsViewController)
-        nvc.modalPresentationStyle = .overCurrentContext
+        let settingsCoordinator = SettingsCoordinator()
+        settingsCoordinator.navigationController.modalPresentationStyle = .overCurrentContext
+        self.add(coordinatable: settingsCoordinator)
         navigationController.present(
-            nvc,
+            settingsCoordinator.navigationController,
             animated: true
         )
+        settingsCoordinator.start()
     }
     
     @objc func plusDidTap() {
@@ -156,24 +155,5 @@ private extension AppCoordinator {
             animated: true
         )
         coordinator.start()
-    }
-}
-
-extension AppCoordinator: NativeSettingsViewControllerDataSource {
-    func nativeSettingsViewController(
-        _ viewController: NativeSettingsViewController
-    ) -> [NativeSettingsSection] {
-        return [
-            .init(headerTitle: "", footerTitle: "", rows: [
-                .aboutApp(), .support()
-            ])
-        ]
-    }
-    
-    func nativeSettingsViewController(
-        _ viewController: NativeSettingsViewController,
-        shouldShowIndicator for: IndexPath
-    ) -> Bool {
-        return true
     }
 }
