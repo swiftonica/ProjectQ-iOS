@@ -24,20 +24,17 @@ class ComponentsCoordinator: Coordinatable {
             [unowned self] event in
             switch event {
             case .didChooseComponent(let component):
-                let module = component.module(delegate: {
+                let componentViewController = component.module(delegate: {
                     component in
                     self.completion?(.didChooseComponent(component))
                 })
                 
-                guard let module = module else {
+                guard let componentViewController = componentViewController else {
                     SPAlert.present(title: "Error", message: "Component Screen is not exist", preset: .error)
                     break
                 }
                 
-                self.navigationController.pushViewController(module.view, animated: true)
-                self.keeper.keepModule(module, forKey: "temp")
-                
-            default: break
+                self.navigationController.pushViewController(componentViewController, animated: true)
             }
 
         }.module

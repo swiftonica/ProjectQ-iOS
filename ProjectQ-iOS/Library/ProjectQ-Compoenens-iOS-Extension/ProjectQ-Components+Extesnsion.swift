@@ -61,33 +61,25 @@ extension Array where Element: Component {
 }
    
 extension Component {
-    func module(delegate: @escaping (Component) -> Void) -> Module<
-        ViewComponentReturnable & UIViewController,
-        AnyObject,
-        Any
-    >? {
+    func module(delegate: @escaping (Component) -> Void) -> UIViewController? {
         switch self {
         case .interval:
             let view = IntervalViewController()
             view.didReturnComponent = delegate
             view.configureData(self.handler.input)
-            
-            return Module(
-                view: view,
-                presenter: EmptyPresenter(),
-                publicInterface: nil
-            )
+            return view
             
         case .description:
             let view = ComponentableHostingViewController(rootView: DescriptionComponentView())
             view.rootView.didReturnComponent = delegate
             view.rootView.configureData(self.handler.input)
+            return view
             
-            return Module(
-                view: view,
-                presenter: EmptyPresenter(),
-                publicInterface: nil
-            )
+        case .smallInterval:
+            let view = ComponentableHostingViewController(rootView: SmallIntervalView())
+            view.rootView.didReturnComponent = delegate
+            view.rootView.configureData(self.handler.input)
+            return view
             
         default: return nil
         }
@@ -117,6 +109,12 @@ extension Component {
                 return ""
             }
             return structInput.description
+            
+        case .smallInterval:
+            guard let structInput = try? JSONDecoder().decode(SmallIntervalComponentHandlerInput.self, from: self.handler.input) else {
+                return ""
+            }
+            return "Each \(structInput.interval) \(structInput.intervalType)"
             
         default: return ""
         }

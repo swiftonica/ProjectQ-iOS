@@ -89,8 +89,8 @@ private extension PackagesInformationCoordinator {
                 self.add(coordinatable: taskInformationCoordinator)
                 
                 
-            case .finish(let Package):
-                self.completion?(.finish(Package))
+            case .finish(let package):
+                self.completion?(.finish(package))
                 
             case .didSelectIndex(let index):
                 self.selectedTaskIndex = index // [!] <- set state

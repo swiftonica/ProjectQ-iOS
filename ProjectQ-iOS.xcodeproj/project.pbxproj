@@ -17,6 +17,8 @@
 		3E4BA80A29AC8DBC00BDD45A /* AllComponentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */; };
 		3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */; };
 		3E4C516929AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */; };
+		3E5A4AEC29EADC6500E48857 /* BackupService in Frameworks */ = {isa = PBXBuildFile; productRef = 3E5A4AEB29EADC6500E48857 /* BackupService */; };
+		3E5A4AF329EB275300E48857 /* SmallIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A4AF229EB275300E48857 /* SmallIntervalView.swift */; };
 		3E6A16A529B66B4900268220 /* HelperSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6A16A429B66B4900268220 /* HelperSUI.swift */; };
 		3E6A16A729B67D8E00268220 /* TaskInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */; };
 		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
@@ -54,6 +56,7 @@
 		3E4BA80929AC8DBC00BDD45A /* AllComponentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllComponentsService.swift; sourceTree = "<group>"; };
 		3E4BA80B29AD1A3F00BDD45A /* ComponentsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsModule.swift; sourceTree = "<group>"; };
 		3E4C516829AFD89900C289DF /* ProjectQ-Components+Extesnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectQ-Components+Extesnsion.swift"; sourceTree = "<group>"; };
+		3E5A4AF229EB275300E48857 /* SmallIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallIntervalView.swift; sourceTree = "<group>"; };
 		3E6A16A429B66B4900268220 /* HelperSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperSUI.swift; sourceTree = "<group>"; };
 		3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationCoordinator.swift; sourceTree = "<group>"; };
 		3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationPresenter.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 				3EE1F91C29A0FE8D00BBB85E /* SPAlert in Frameworks */,
 				3E2E4BEE29E71F55008ABBC9 /* ProjectQ-Components2 in Frameworks */,
 				3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */,
+				3E5A4AEC29EADC6500E48857 /* BackupService in Frameworks */,
 				3EF02B2929A0E63300F2317A /* ModuleAssembler in Frameworks */,
 				3E9041C429B13788004905F7 /* Eureka in Frameworks */,
 				3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */,
@@ -154,6 +158,7 @@
 			children = (
 				3E9041C129B1336D004905F7 /* IntervalComponent */,
 				3EDCE5F629BE229F00BDDDA2 /* DescriptionComponentView.swift */,
+				3E5A4AF229EB275300E48857 /* SmallIntervalView.swift */,
 			);
 			path = ComponentScreens;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */,
 				3E9041C329B13788004905F7 /* Eureka */,
 				3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */,
+				3E5A4AEB29EADC6500E48857 /* BackupService */,
 			);
 			productName = "ProjectQ-iOS";
 			productReference = 3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */;
@@ -345,6 +351,7 @@
 				3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */,
 				3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */,
 				3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */,
+				3E5A4AEA29EADC6500E48857 /* XCRemoteSwiftPackageReference "BackupService" */,
 			);
 			productRefGroup = 3EA6AADA299EC3DB0086CCB0 /* Products */;
 			projectDirPath = "";
@@ -378,6 +385,7 @@
 				3E6A16A729B67D8E00268220 /* TaskInformationCoordinator.swift in Sources */,
 				3E9041C729B137B3004905F7 /* IntervalComponentViewController.swift in Sources */,
 				3E3195D129BE682500F1343D /* MultilineTextField.swift in Sources */,
+				3E5A4AF329EB275300E48857 /* SmallIntervalView.swift in Sources */,
 				3EE1F91629A0F87600BBB85E /* PackagesModule.swift in Sources */,
 				3EF02B2129A0D87A00F2317A /* DoubleTitleTableViewCell.swift in Sources */,
 				3E4BA80629AC8B3500BDD45A /* ComponentsView.swift in Sources */,
@@ -618,6 +626,14 @@
 				kind = branch;
 			};
 		};
+		3E5A4AEA29EADC6500E48857 /* XCRemoteSwiftPackageReference "BackupService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jeytery/BackupService";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -681,6 +697,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */;
 			productName = "ProjectQ-Components2";
+		};
+		3E5A4AEB29EADC6500E48857 /* BackupService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E5A4AEA29EADC6500E48857 /* XCRemoteSwiftPackageReference "BackupService" */;
+			productName = BackupService;
 		};
 		3E8A6A4E299EC58D00380C72 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

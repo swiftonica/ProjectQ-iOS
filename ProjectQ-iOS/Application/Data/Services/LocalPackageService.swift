@@ -47,7 +47,8 @@ extension LocalPackagesService {
             errorHandler?(.archiveFailure)
             return
         }
-        userDefaults.set(data, forKey: key)
+        clear()
+        UserDefaults.standard.set(data, forKey: key)
     }
     
     func clear() {

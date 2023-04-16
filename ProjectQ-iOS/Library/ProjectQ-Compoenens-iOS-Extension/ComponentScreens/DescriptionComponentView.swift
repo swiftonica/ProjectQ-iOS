@@ -14,7 +14,6 @@ fileprivate class DescriptionComponentViewViewModel: ObservableObject {
     @Published var descriptionValue: String = ""
 }
 
-
 struct DescriptionComponentView: View, ViewComponentReturnable {
   
     var didReturnComponent: ((Component) -> Void)?
@@ -35,7 +34,6 @@ struct DescriptionComponentView: View, ViewComponentReturnable {
             MultilineTextField("Enter description", text: $viewModel.descriptionValue)
                 .frame(height: 50)
         }
-        
         .SPAlert(
             isPresent: $isAlertPresentet,
             alertView: .init(

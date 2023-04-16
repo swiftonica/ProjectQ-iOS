@@ -33,7 +33,7 @@ class TaskInformationCoordinator: Coordinatable {
                 self.addComponentCoordinator()
                                             
             case .selectedComponent(let component):
-                let module = component.module() {
+                let componentViewController = component.module() {
                     component in
                     self.navigationController.popToViewController(
                         self.taskInformationModule.view,
@@ -41,11 +41,11 @@ class TaskInformationCoordinator: Coordinatable {
                     )
                     self.taskInformationModule.publicInterface?.updateComponent(component, at: self.selectedComponentIndex)
                 }
-                guard let module = module else {
+                guard let componentViewController = componentViewController else {
                     SPAlert.present(title: "Error", message: "Screen doesn't exist", preset: .error)
                     break
                 }
-                self.navigationController.pushViewController(module.view, animated: true)
+                self.navigationController.pushViewController(componentViewController, animated: true)
                 
             case .finish(let task):
                 self.completion?(.finsish(task))

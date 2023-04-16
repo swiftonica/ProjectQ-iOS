@@ -13,6 +13,7 @@ import ProjectQ_Components2
 import ModuleAssembler
 import SwiftUI
 import SPAlert
+import BackupService
 
 class AppCoordinator: CompletionlessCoordinatable {
     var childCoordinators: [CompletionlessCoordinatable] = []
@@ -32,6 +33,20 @@ class AppCoordinator: CompletionlessCoordinatable {
             case .didEditPackage(let package):
                 self.showPackagesInformationCoordinator(package: package)
                 
+            case .didConnect(let package):
+                let backupService = BackupService(for: package.codablePackage)
+                switch backupService.backup() {
+                case .success(let url):
+                    self.showActivityController(url) {
+                        if let error = backupService.removeFile() {
+                            print(error)
+                        }
+                    }
+                case .failure(let error):
+                    SPAlert.present(message: error.localizedDescription, haptic: .error)
+                    break
+                }
+                
             default: break
             }
         }
@@ -46,6 +61,21 @@ class AppCoordinator: CompletionlessCoordinatable {
 }
 
 private extension AppCoordinator {
+    func showActivityController(_ url: URL, completion: @escaping () -> Void) {
+        let files: [URL] = [url]
+        
+        let activityViewController = UIActivityViewController(
+            activityItems: files,
+            applicationActivities: nil)
+
+        activityViewController.completionWithItemsHandler = {
+            activityType, completed, returnedItems, error in
+            completion()
+        }
+        
+        navigationController.present(activityViewController, animated: true)
+    }
+    
     @objc func settingsDidtap() {
         let nativeSettingsViewController = NativeSettingsViewController(dataSource: self)
         nativeSettingsViewController.modalPresentationStyle = .overCurrentContext

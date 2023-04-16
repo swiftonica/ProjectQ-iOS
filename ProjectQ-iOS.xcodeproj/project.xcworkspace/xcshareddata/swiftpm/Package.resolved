@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "backupservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Jeytery/BackupService",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e83605acfc46855b908cc27c526b5ed0ae14d55a"
+      }
+    },
+    {
       "identity" : "eureka",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xmartlabs/Eureka",
@@ -51,7 +60,7 @@
       "location" : "https://github.com/swiftonica/ProjectQ-Components2",
       "state" : {
         "branch" : "master",
-        "revision" : "783ba88b517094f268048668f6aad93d77702d1e"
+        "revision" : "c706a8870a088b2519f351441760947ae7f7e7a8"
       }
     },
     {
