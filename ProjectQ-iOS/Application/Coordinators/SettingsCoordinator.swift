@@ -10,6 +10,7 @@ import UIKit
 import NavigationLayer
 import NativeSettingsViewController
 import SwiftUI
+import SPPageController
 
 class SettingsCoordinator: Coordinatable {
     enum _ReturnData {
@@ -40,7 +41,7 @@ extension SettingsCoordinator: NativeSettingsViewControllerDelegate, NativeSetti
     ) -> [NativeSettingsSection] {
         return [
             .init(headerTitle: "", footerTitle: "", rows: [
-                .aboutApp()
+                .aboutApp(), .support()
             ])
         ]
     }
@@ -59,7 +60,13 @@ extension SettingsCoordinator: NativeSettingsViewControllerDelegate, NativeSetti
         switch row {
         case .aboutApp():
             navigationController.pushViewController(UIHostingController(rootView: AboutAppView()), animated: true)
-            break
+            
+        case .support():
+            let closableNavigationController = ClosableNavigationController(
+                rootViewController: UIHostingController(rootView: OnboardingView())
+            )
+            navigationController.present(closableNavigationController, animated: true)
+            
         default: break
         }
     }

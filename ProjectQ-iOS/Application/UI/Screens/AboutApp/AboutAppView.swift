@@ -11,6 +11,27 @@ struct AboutAppView: View {
     var body: some View {
         Form {
             Section {
+                HStack {
+                    Image(uiImage: getAppIcon() ?? UIImage())
+                        .cornerRadius(10)
+                    VStack {
+                        HStack {
+                            Text("ProQ")
+                                .font(.system(size: 29, weight: .semibold))
+                            Spacer()
+                        }
+                        HStack {
+                            Text("indev1")
+                                .font(.system(size: 17, weight: .regular))
+                                .foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                }
+            }
+            
+            Section {
                 infoCell(title1: "Version", title2: "indev1", disclosureIndicator: false) {}
                 infoCell(title1: "Developer", title2: "Jeytery", disclosureIndicator: true) {
                     guard let url = URL(string: "https://telegram.im/@Jeytery") else { return }
@@ -74,6 +95,20 @@ struct AboutAppView: View {
                 didTap()
             })
         }
+    }
+    
+    
+    private func getAppIcon() -> UIImage? {
+        let bundle = Bundle.main
+        if
+            let icons = bundle.infoDictionary?["CFBundleIcons"] as? [String: Any],
+            let primaryIcon = icons["CFBundlePrimaryIcon"] as? [String: Any],
+            let iconFiles = primaryIcon["CFBundleIconFiles"] as? [String],
+            let lastIcon = iconFiles.last
+        {
+            return UIImage(named: lastIcon)
+        }
+        return nil
     }
 }
 

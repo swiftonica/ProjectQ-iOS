@@ -23,6 +23,12 @@
 		3E5A4AF329EB275300E48857 /* SmallIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A4AF229EB275300E48857 /* SmallIntervalView.swift */; };
 		3E6A16A529B66B4900268220 /* HelperSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6A16A429B66B4900268220 /* HelperSUI.swift */; };
 		3E6A16A729B67D8E00268220 /* TaskInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */; };
+		3E7F817329FA7BCB0027F745 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F817229FA7BCB0027F745 /* OnboardingViewController.swift */; };
+		3E7F817629FA7E0B0027F745 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7F817529FA7E0B0027F745 /* SwiftyGif */; };
+		3E7F817C29FA80090027F745 /* walker2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817829FA80090027F745 /* walker2.gif */; };
+		3E7F817D29FA80090027F745 /* walker.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817929FA80090027F745 /* walker.gif */; };
+		3E7F817E29FA80090027F745 /* walker3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817A29FA80090027F745 /* walker3.gif */; };
+		3E7F817F29FA80090027F745 /* space.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817B29FA80090027F745 /* space.gif */; };
 		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
 		3E9041BE29B1229F004905F7 /* TaskInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */; };
 		3E9041C029B127B5004905F7 /* ComponentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */; };
@@ -49,6 +55,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E00833C29FB07A100563C93 /* onboarding2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding2.mp4; sourceTree = "<group>"; };
+		3E00833D29FB07A100563C93 /* oboarding1_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = oboarding1_1.mp4; sourceTree = "<group>"; };
+		3E00833E29FB07A200563C93 /* onboarding3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding3.mp4; sourceTree = "<group>"; };
 		3E024BF929A9243D00D27B7C /* ConnectSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSUI.swift; sourceTree = "<group>"; };
 		3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationPresenter.swift; sourceTree = "<group>"; };
 		3E3195D029BE682500F1343D /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
@@ -63,6 +72,11 @@
 		3E5A4AF229EB275300E48857 /* SmallIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallIntervalView.swift; sourceTree = "<group>"; };
 		3E6A16A429B66B4900268220 /* HelperSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperSUI.swift; sourceTree = "<group>"; };
 		3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationCoordinator.swift; sourceTree = "<group>"; };
+		3E7F817229FA7BCB0027F745 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		3E7F817829FA80090027F745 /* walker2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walker2.gif; sourceTree = "<group>"; };
+		3E7F817929FA80090027F745 /* walker.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walker.gif; sourceTree = "<group>"; };
+		3E7F817A29FA80090027F745 /* walker3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walker3.gif; sourceTree = "<group>"; };
+		3E7F817B29FA80090027F745 /* space.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = space.gif; sourceTree = "<group>"; };
 		3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationPresenter.swift; sourceTree = "<group>"; };
 		3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsCoordinator.swift; sourceTree = "<group>"; };
 		3E9041C629B137B3004905F7 /* IntervalComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalComponentViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +111,7 @@
 				3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */,
 				3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */,
 				3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */,
+				3E7F817629FA7E0B0027F745 /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +172,28 @@
 			path = HelperSUI;
 			sourceTree = "<group>";
 		};
+		3E7F817129FA7BB70027F745 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3E7F817229FA7BCB0027F745 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		3E7F817729FA7FF70027F745 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				3E00833D29FB07A100563C93 /* oboarding1_1.mp4 */,
+				3E00833C29FB07A100563C93 /* onboarding2.mp4 */,
+				3E00833E29FB07A200563C93 /* onboarding3.mp4 */,
+				3E7F817929FA80090027F745 /* walker.gif */,
+				3E7F817B29FA80090027F745 /* space.gif */,
+				3E7F817829FA80090027F745 /* walker2.gif */,
+				3E7F817A29FA80090027F745 /* walker3.gif */,
+			);
+			path = gif;
+			sourceTree = "<group>";
+		};
 		3E9041C129B1336D004905F7 /* IntervalComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +231,7 @@
 		3EA6AADB299EC3DB0086CCB0 /* ProjectQ-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3E7F817729FA7FF70027F745 /* gif */,
 				3EF02B1329A0D53100F2317A /* Application */,
 				3EF02B1229A0D52900F2317A /* Library */,
 				3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */,
@@ -270,6 +308,7 @@
 		3EF02B1829A0D60A00F2317A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E7F817129FA7BB70027F745 /* Onboarding */,
 				3E3DBE9629EC6AEA0053374B /* AboutApp */,
 				3E4BA80329AC8B1D00BDD45A /* Components */,
 				3E4BA7FE29ABF47D00BDD45A /* TaskInformation */,
@@ -327,6 +366,7 @@
 				3E9041C329B13788004905F7 /* Eureka */,
 				3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */,
 				3E5A4AEB29EADC6500E48857 /* BackupService */,
+				3E7F817529FA7E0B0027F745 /* SwiftyGif */,
 			);
 			productName = "ProjectQ-iOS";
 			productReference = 3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */;
@@ -366,6 +406,7 @@
 				3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */,
 				3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */,
 				3E5A4AEA29EADC6500E48857 /* XCRemoteSwiftPackageReference "BackupService" */,
+				3E7F817429FA7E0B0027F745 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 			);
 			productRefGroup = 3EA6AADA299EC3DB0086CCB0 /* Products */;
 			projectDirPath = "";
@@ -381,8 +422,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7F817F29FA80090027F745 /* space.gif in Resources */,
 				3EA6AAE9299EC3DE0086CCB0 /* LaunchScreen.storyboard in Resources */,
+				3E7F817E29FA80090027F745 /* walker3.gif in Resources */,
 				3EA6AAE6299EC3DE0086CCB0 /* Assets.xcassets in Resources */,
+				3E7F817D29FA80090027F745 /* walker.gif in Resources */,
+				3E7F817C29FA80090027F745 /* walker2.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7F817329FA7BCB0027F745 /* OnboardingViewController.swift in Sources */,
 				3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */,
 				3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */,
 				3EF02B1D29A0D7C400F2317A /* PackagesInformationCoordinator.swift in Sources */,
@@ -650,6 +696,14 @@
 				kind = branch;
 			};
 		};
+		3E7F817429FA7E0B0027F745 /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		3E8A6A4D299EC58D00380C72 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -718,6 +772,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E5A4AEA29EADC6500E48857 /* XCRemoteSwiftPackageReference "BackupService" */;
 			productName = BackupService;
+		};
+		3E7F817529FA7E0B0027F745 /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E7F817429FA7E0B0027F745 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
 		};
 		3E8A6A4E299EC58D00380C72 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

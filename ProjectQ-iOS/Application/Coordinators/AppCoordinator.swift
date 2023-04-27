@@ -38,7 +38,7 @@ class AppCoordinator: CompletionlessCoordinatable {
                 case .success(let url):
                     self.showActivityController(url) {
                         if let error = backupService.removeFile() {
-                            print(error)
+                            SPAlert.present(message: error.localizedDescription, haptic: .error)
                         }
                     }
                 case .failure(let error):

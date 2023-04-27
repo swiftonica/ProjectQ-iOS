@@ -144,7 +144,11 @@ private extension IntervalViewController {
         
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(input) else {
-            return
+            return SPAlert.present(
+                title: "Error",
+                message: "Something went wrong...",
+                preset: .error
+            )
         }
         
         didReturnComponent?(

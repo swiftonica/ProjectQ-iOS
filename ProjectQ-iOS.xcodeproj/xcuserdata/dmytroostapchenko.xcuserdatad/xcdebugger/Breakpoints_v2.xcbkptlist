@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6B0B104B-D579-4E74-83D0-F73E4E5ABA7A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjectQ-iOS/Application/Coordinators/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "start()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "79423E01-60EE-418E-A7A7-D94294E05E9C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -151,22 +135,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6A32FE03-CEC6-46BE-8F2A-5D9A808EADC9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../Library/Developer/Xcode/DerivedData/ProjectQ-iOS-dnhfhunvwiyszxfkwnccvmtcngek/SourcePackages/checkouts/ProjectQ-Components2/Sources/ProjectQ-Components2/Models/HandlerType.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "init(handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "68F4BB3E-06B6-4AF2-BDFB-13FDF2928A74"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -216,7 +184,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "694EA1C2-5BB1-4A12-BE01-090DF8B70231"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectQ-iOS/Application/Coordinators/PackagesInformationCoordinator.swift"
@@ -321,6 +289,134 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "addCloseToViewController(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CECA50B-0BBB-4C76-8E14-E3860F7E3495"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Library/ProjectQ-Compoenens-iOS-Extension/ComponentScreens/IntervalComponent/IntervalComponentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "doneButtonDidTap()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2CECA50B-0BBB-4C76-8E14-E3860F7E3495 - 9fde0517c0ac083e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectQ_iOS.IntervalViewController.doneButtonDidTap() -&gt; ()"
+                  moduleName = "ProjectQ-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmytroostapchenko/Documents/programming/XcodeProjects/ProjectQ-iOS/ProjectQ-iOS/Library/ProjectQ-Compoenens-iOS-Extension/ComponentScreens/IntervalComponent/IntervalComponentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "2CECA50B-0BBB-4C76-8E14-E3860F7E3495 - 9fde0517c0ac083e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectQ_iOS.IntervalViewController.doneButtonDidTap() -&gt; ()"
+                  moduleName = "ProjectQ-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmytroostapchenko/Documents/programming/XcodeProjects/ProjectQ-iOS/ProjectQ-iOS/Library/ProjectQ-Compoenens-iOS-Extension/ComponentScreens/IntervalComponent/IntervalComponentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C99DA6D2-B66E-4476-8B97-19694254CD54"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../Library/Developer/Xcode/DerivedData/ProjectQ-iOS-dnhfhunvwiyszxfkwnccvmtcngek/SourcePackages/checkouts/ProjectQ-Components2/Sources/ProjectQ-Components2/Components/Interval/IntervalCompnent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "interval(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA8E2545-8753-4F13-87E0-416F51095427"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Library/ProjectQ-Compoenens-iOS-Extension/ProjectQ-Components+Extesnsion.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "module(delegate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45FB241F-D069-4DE1-81D7-B38A5854FB07"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Application/Coordinators/ComponentsCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "start()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F35ECEB8-C5DF-4619-9D95-B929E929AC53"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../Library/Developer/Xcode/DerivedData/ProjectQ-iOS-dnhfhunvwiyszxfkwnccvmtcngek/SourcePackages/checkouts/BackupService/Sources/BackupService/BackupService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "backup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98B9E1DD-CEE4-46F2-851D-CE23E6FB20BA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectQ-iOS/Application/Coordinators/AppCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
