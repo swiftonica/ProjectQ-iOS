@@ -6,11 +6,8 @@
 //
 
 import Foundation
-import UIKit
 import NavigationLayer
-import NativeSettingsViewController
 import SwiftUI
-import SPPageController
 
 class SettingsCoordinator: Coordinatable {
     enum _ReturnData {
@@ -29,39 +26,18 @@ class SettingsCoordinator: Coordinatable {
 
 private extension SettingsCoordinator {
     func addSettings() {
-        let nativeSettingsViewController = NativeSettingsViewController(dataSource: self)
-        nativeSettingsViewController.delegate = self
-        navigationController.pushViewController(nativeSettingsViewController, animated: false)
+        var settingsView = SettingsView()
+        settingsView.events.didTapCase = settingsViewControllerDidTap
+        let settingsViewController = UIHostingController(rootView: settingsView)
+        navigationController.pushViewController(settingsViewController, animated: false)
     }
-}
-
-extension SettingsCoordinator: NativeSettingsViewControllerDelegate, NativeSettingsViewControllerDataSource {
-    func nativeSettingsViewController(
-        _ viewController: NativeSettingsViewController
-    ) -> [NativeSettingsSection] {
-        return [
-            .init(headerTitle: "", footerTitle: "", rows: [
-                .aboutApp(), .support()
-            ])
-        ]
-    }
-
-    func nativeSettingsViewController(
-        _ viewController: NativeSettingsViewController,
-        shouldShowIndicator for: IndexPath
-    ) -> Bool {
-        return true
-    }
-
-    func nativeSettingsViewController(
-        _ viewController: NativeSettingsViewController,
-        didSelect row: NativeSettingsRow
-    ) {
+    
+    private func settingsViewControllerDidTap(row: SettingsView.Cell) {
         switch row {
-        case .aboutApp():
+        case .aboutApp:
             navigationController.pushViewController(UIHostingController(rootView: AboutAppView()), animated: true)
             
-        case .support():
+        case .onboarding:
             let closableNavigationController = ClosableNavigationController(
                 rootViewController: UIHostingController(rootView: OnboardingView())
             )

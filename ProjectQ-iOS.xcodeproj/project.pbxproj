@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E00834029FB09BF00563C93 /* onboarding3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E00833F29FB09BE00563C93 /* onboarding3.gif */; };
 		3E024BFA29A9243D00D27B7C /* ConnectSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BF929A9243D00D27B7C /* ConnectSUI.swift */; };
 		3E024BFC29A943CB00D27B7C /* PackageInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */; };
+		3E02770529FD0CB000DF36CC /* OnbordingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E02770429FD0CB000DF36CC /* OnbordingPageViewController.swift */; };
+		3E02C99429FE552C00D8815A /* SettingsIconGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 3E02C99329FE552C00D8815A /* SettingsIconGenerator */; };
+		3E02C99629FE68D800D8815A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E02C99529FE68D800D8815A /* SettingsView.swift */; };
 		3E2E4BEE29E71F55008ABBC9 /* ProjectQ-Components2 in Frameworks */ = {isa = PBXBuildFile; productRef = 3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */; };
 		3E3195D129BE682500F1343D /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3195D029BE682500F1343D /* MultilineTextField.swift */; };
 		3E3DBE9829EC6AF90053374B /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DBE9729EC6AF90053374B /* AboutAppView.swift */; };
@@ -25,10 +29,6 @@
 		3E6A16A729B67D8E00268220 /* TaskInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */; };
 		3E7F817329FA7BCB0027F745 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F817229FA7BCB0027F745 /* OnboardingViewController.swift */; };
 		3E7F817629FA7E0B0027F745 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 3E7F817529FA7E0B0027F745 /* SwiftyGif */; };
-		3E7F817C29FA80090027F745 /* walker2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817829FA80090027F745 /* walker2.gif */; };
-		3E7F817D29FA80090027F745 /* walker.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817929FA80090027F745 /* walker.gif */; };
-		3E7F817E29FA80090027F745 /* walker3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817A29FA80090027F745 /* walker3.gif */; };
-		3E7F817F29FA80090027F745 /* space.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E7F817B29FA80090027F745 /* space.gif */; };
 		3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E8A6A4E299EC58D00380C72 /* SnapKit */; };
 		3E9041BE29B1229F004905F7 /* TaskInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */; };
 		3E9041C029B127B5004905F7 /* ComponentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */; };
@@ -37,7 +37,6 @@
 		3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E242A299F9A9C00C6D95F /* NavigationLayer */; };
 		3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9E2431299F9B1000C6D95F /* AboutAppViewController */; };
 		3E9E2434299F9B9F00C6D95F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E2433299F9B9F00C6D95F /* AppCoordinator.swift */; };
-		3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */; };
 		3EA6AADD299EC3DB0086CCB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AADC299EC3DB0086CCB0 /* AppDelegate.swift */; };
 		3EA6AAE6299EC3DE0086CCB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6AAE5299EC3DE0086CCB0 /* Assets.xcassets */; };
 		3EA6AAE9299EC3DE0086CCB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6AAE7299EC3DE0086CCB0 /* LaunchScreen.storyboard */; };
@@ -55,11 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E00833C29FB07A100563C93 /* onboarding2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding2.mp4; sourceTree = "<group>"; };
-		3E00833D29FB07A100563C93 /* oboarding1_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = oboarding1_1.mp4; sourceTree = "<group>"; };
-		3E00833E29FB07A200563C93 /* onboarding3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding3.mp4; sourceTree = "<group>"; };
+		3E00833F29FB09BE00563C93 /* onboarding3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboarding3.gif; sourceTree = "<group>"; };
 		3E024BF929A9243D00D27B7C /* ConnectSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSUI.swift; sourceTree = "<group>"; };
 		3E024BFB29A943CB00D27B7C /* PackageInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInformationPresenter.swift; sourceTree = "<group>"; };
+		3E02770429FD0CB000DF36CC /* OnbordingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingPageViewController.swift; sourceTree = "<group>"; };
+		3E02C99529FE68D800D8815A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E3195D029BE682500F1343D /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		3E3DBE9729EC6AF90053374B /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
 		3E3DBE9B29EC7B2B0053374B /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -73,10 +72,6 @@
 		3E6A16A429B66B4900268220 /* HelperSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperSUI.swift; sourceTree = "<group>"; };
 		3E6A16A629B67D8E00268220 /* TaskInformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationCoordinator.swift; sourceTree = "<group>"; };
 		3E7F817229FA7BCB0027F745 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		3E7F817829FA80090027F745 /* walker2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walker2.gif; sourceTree = "<group>"; };
-		3E7F817929FA80090027F745 /* walker.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walker.gif; sourceTree = "<group>"; };
-		3E7F817A29FA80090027F745 /* walker3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walker3.gif; sourceTree = "<group>"; };
-		3E7F817B29FA80090027F745 /* space.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = space.gif; sourceTree = "<group>"; };
 		3E9041BD29B1229F004905F7 /* TaskInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInformationPresenter.swift; sourceTree = "<group>"; };
 		3E9041BF29B127B5004905F7 /* ComponentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsCoordinator.swift; sourceTree = "<group>"; };
 		3E9041C629B137B3004905F7 /* IntervalComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalComponentViewController.swift; sourceTree = "<group>"; };
@@ -104,11 +99,11 @@
 			files = (
 				3EE1F91C29A0FE8D00BBB85E /* SPAlert in Frameworks */,
 				3E2E4BEE29E71F55008ABBC9 /* ProjectQ-Components2 in Frameworks */,
+				3E02C99429FE552C00D8815A /* SettingsIconGenerator in Frameworks */,
 				3E9E242B299F9A9C00C6D95F /* NavigationLayer in Frameworks */,
 				3E5A4AEC29EADC6500E48857 /* BackupService in Frameworks */,
 				3EF02B2929A0E63300F2317A /* ModuleAssembler in Frameworks */,
 				3E9041C429B13788004905F7 /* Eureka in Frameworks */,
-				3E9EE58429A2C07A007ECAB3 /* NativeSettingsViewController in Frameworks */,
 				3E9E2432299F9B1000C6D95F /* AboutAppViewController in Frameworks */,
 				3E8A6A4F299EC58D00380C72 /* SnapKit in Frameworks */,
 				3E7F817629FA7E0B0027F745 /* SwiftyGif in Frameworks */,
@@ -176,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				3E7F817229FA7BCB0027F745 /* OnboardingViewController.swift */,
+				3E02770429FD0CB000DF36CC /* OnbordingPageViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -183,15 +179,17 @@
 		3E7F817729FA7FF70027F745 /* gif */ = {
 			isa = PBXGroup;
 			children = (
-				3E00833D29FB07A100563C93 /* oboarding1_1.mp4 */,
-				3E00833C29FB07A100563C93 /* onboarding2.mp4 */,
-				3E00833E29FB07A200563C93 /* onboarding3.mp4 */,
-				3E7F817929FA80090027F745 /* walker.gif */,
-				3E7F817B29FA80090027F745 /* space.gif */,
-				3E7F817829FA80090027F745 /* walker2.gif */,
-				3E7F817A29FA80090027F745 /* walker3.gif */,
+				3E00833F29FB09BE00563C93 /* onboarding3.gif */,
 			);
 			path = gif;
+			sourceTree = "<group>";
+		};
+		3E80CDAE29FE52E00076F6A7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3E02C99529FE68D800D8815A /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		3E9041C129B1336D004905F7 /* IntervalComponent */ = {
@@ -308,6 +306,7 @@
 		3EF02B1829A0D60A00F2317A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E80CDAE29FE52E00076F6A7 /* Settings */,
 				3E7F817129FA7BB70027F745 /* Onboarding */,
 				3E3DBE9629EC6AEA0053374B /* AboutApp */,
 				3E4BA80329AC8B1D00BDD45A /* Components */,
@@ -362,11 +361,11 @@
 				3E9E2431299F9B1000C6D95F /* AboutAppViewController */,
 				3EF02B2829A0E63300F2317A /* ModuleAssembler */,
 				3EE1F91B29A0FE8D00BBB85E /* SPAlert */,
-				3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */,
 				3E9041C329B13788004905F7 /* Eureka */,
 				3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */,
 				3E5A4AEB29EADC6500E48857 /* BackupService */,
 				3E7F817529FA7E0B0027F745 /* SwiftyGif */,
+				3E02C99329FE552C00D8815A /* SettingsIconGenerator */,
 			);
 			productName = "ProjectQ-iOS";
 			productReference = 3EA6AAD9299EC3DB0086CCB0 /* ProjectQ-iOS.app */;
@@ -402,11 +401,11 @@
 				3E9E2430299F9B0F00C6D95F /* XCRemoteSwiftPackageReference "AboutAppViewController" */,
 				3EF02B2729A0E63300F2317A /* XCRemoteSwiftPackageReference "ModuleAssembler" */,
 				3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */,
-				3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */,
 				3E9041C229B13788004905F7 /* XCRemoteSwiftPackageReference "Eureka" */,
 				3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */,
 				3E5A4AEA29EADC6500E48857 /* XCRemoteSwiftPackageReference "BackupService" */,
 				3E7F817429FA7E0B0027F745 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				3E02C99229FE552C00D8815A /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */,
 			);
 			productRefGroup = 3EA6AADA299EC3DB0086CCB0 /* Products */;
 			projectDirPath = "";
@@ -422,12 +421,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E7F817F29FA80090027F745 /* space.gif in Resources */,
 				3EA6AAE9299EC3DE0086CCB0 /* LaunchScreen.storyboard in Resources */,
-				3E7F817E29FA80090027F745 /* walker3.gif in Resources */,
+				3E00834029FB09BF00563C93 /* onboarding3.gif in Resources */,
 				3EA6AAE6299EC3DE0086CCB0 /* Assets.xcassets in Resources */,
-				3E7F817D29FA80090027F745 /* walker.gif in Resources */,
-				3E7F817C29FA80090027F745 /* walker2.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E02770529FD0CB000DF36CC /* OnbordingPageViewController.swift in Sources */,
 				3E7F817329FA7BCB0027F745 /* OnboardingViewController.swift in Sources */,
 				3EC2C47729A3D430004B2449 /* ClosableNavigationController.swift in Sources */,
 				3E4BA80C29AD1A4000BDD45A /* ComponentsModule.swift in Sources */,
@@ -466,6 +463,7 @@
 				3EF02B2629A0DFB300F2317A /* PackagesNetworkingPresenter.swift in Sources */,
 				3E3DBE9C29EC7B2B0053374B /* SettingsCoordinator.swift in Sources */,
 				3E4BA80229AC169A00BDD45A /* TaskInformationView.swift in Sources */,
+				3E02C99629FE68D800D8815A /* SettingsView.swift in Sources */,
 				3E9041BE29B1229F004905F7 /* TaskInformationPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R24W57U338;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProjectQ-iOS/Info.plist";
@@ -614,16 +612,20 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jeytery.ProjectQ-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = Jeytery.ProQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -633,7 +635,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R24W57U338;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProjectQ-iOS/Info.plist";
@@ -643,16 +645,20 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jeytery.ProjectQ-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = Jeytery.ProQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -680,6 +686,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3E02C99229FE552C00D8815A /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SettingsIconGenerator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftonica/ProjectQ-Components2";
@@ -736,14 +750,6 @@
 				kind = branch;
 			};
 		};
-		3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftonica/NativeSettingsViewController";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		3EE1F91A29A0FE8D00BBB85E /* XCRemoteSwiftPackageReference "SPAlert" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
@@ -763,6 +769,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3E02C99329FE552C00D8815A /* SettingsIconGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E02C99229FE552C00D8815A /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */;
+			productName = SettingsIconGenerator;
+		};
 		3E2E4BED29E71F55008ABBC9 /* ProjectQ-Components2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3E2E4BEC29E71F55008ABBC9 /* XCRemoteSwiftPackageReference "ProjectQ-Components2" */;
@@ -797,11 +808,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E9E2430299F9B0F00C6D95F /* XCRemoteSwiftPackageReference "AboutAppViewController" */;
 			productName = AboutAppViewController;
-		};
-		3E9EE58329A2C07A007ECAB3 /* NativeSettingsViewController */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3E9EE58229A2C07A007ECAB3 /* XCRemoteSwiftPackageReference "NativeSettingsViewController" */;
-			productName = NativeSettingsViewController;
 		};
 		3EE1F91B29A0FE8D00BBB85E /* SPAlert */ = {
 			isa = XCSwiftPackageProductDependency;

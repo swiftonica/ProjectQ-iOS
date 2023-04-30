@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = appCoordinator.navigationController
         window?.makeKeyAndVisible()
         appCoordinator.start()
+        
+        var runsCount = (UserDefaults.standard.value(forKey: "app_runs_count_key") as? Int) ?? 0
+        runsCount += 1
+        UserDefaults.standard.set(runsCount, forKey: "app_runs_count_key")
         return true
     }
 }

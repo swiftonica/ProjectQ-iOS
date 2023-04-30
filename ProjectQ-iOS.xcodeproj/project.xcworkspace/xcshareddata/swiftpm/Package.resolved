@@ -24,7 +24,7 @@
       "location" : "https://github.com/xmartlabs/Eureka",
       "state" : {
         "branch" : "master",
-        "revision" : "ba4ebbcc4e368e901de666870fc2a4524474a4c7"
+        "revision" : "2c46ae31f84a8b570fa129e4bfcdea848848d958"
       }
     },
     {
@@ -33,16 +33,7 @@
       "location" : "https://github.com/swiftonica/ModuleAssembler",
       "state" : {
         "branch" : "master",
-        "revision" : "9f2bd8071f2f8496acfa51f70c917cb13a47cac6"
-      }
-    },
-    {
-      "identity" : "nativesettingsviewcontroller",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftonica/NativeSettingsViewController",
-      "state" : {
-        "branch" : "master",
-        "revision" : "172a9944c23b640e45dfd7ae036057684b5c78b9"
+        "revision" : "49d3590fabfc17bc76f22eb207c945a6e35f33f6"
       }
     },
     {
@@ -60,7 +51,16 @@
       "location" : "https://github.com/swiftonica/ProjectQ-Components2",
       "state" : {
         "branch" : "master",
-        "revision" : "0afb6acf0146bb11cdd36ed7ba28748494ce8369"
+        "revision" : "884a02b9b669d1998e3cb54975f79886e667fa44"
+      }
+    },
+    {
+      "identity" : "settingsicongenerator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/SettingsIconGenerator",
+      "state" : {
+        "revision" : "d2070ad86ae7834151f43418eaa57f05380d5aac",
+        "version" : "1.0.2"
       }
     },
     {
@@ -78,16 +78,7 @@
       "location" : "https://github.com/ivanvorobei/SPAlert",
       "state" : {
         "branch" : "main",
-        "revision" : "979a716b640b9e277b28f15f99ed35733694c844"
-      }
-    },
-    {
-      "identity" : "spsettingsicons",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sparrowcode/SPSettingsIcons",
-      "state" : {
-        "revision" : "1a2bd5439aabba3474408fbca86eaad344c3fce9",
-        "version" : "1.0.1"
+        "revision" : "9f2c6a87598cd0ad6c23185ceb0f8ac9c78b763e"
       }
     },
     {

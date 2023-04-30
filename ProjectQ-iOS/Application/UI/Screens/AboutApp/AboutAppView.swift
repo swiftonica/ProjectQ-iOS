@@ -112,7 +112,7 @@ struct AboutAppView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct AboutAppView_Previews: PreviewProvider {
     static var previews: some View {
         AboutAppView()
     }

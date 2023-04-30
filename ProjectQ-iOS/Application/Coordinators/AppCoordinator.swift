@@ -54,6 +54,7 @@ class AppCoordinator: CompletionlessCoordinatable {
     private var keeper = ModuleKeeper<String>()
     private let packagesModule = PackagesModule().module
     private(set) var navigationController = UINavigationController()
+    private let isNotFirstOnboaringKey = "is_first_onboarding_key"
     
     // state
     private var selectedPackageIndex: Int = 0
@@ -142,7 +143,14 @@ private extension AppCoordinator {
             event in
             switch event {
             case .finish(let package):
-                coordinator.navigationController.dismiss(animated: true)
+                coordinator.navigationController.dismiss(animated: true, completion: {
+                    let isFirstOnboarding = UserDefaults.standard.bool(forKey: self.isNotFirstOnboaringKey)
+                    if !isFirstOnboarding {
+                        let vc = UIHostingController(rootView: OnboardingView())
+                        self.navigationController.present(ClosableNavigationController(rootViewController: vc), animated: true)
+                        UserDefaults.standard.set(true, forKey: self.isNotFirstOnboaringKey)
+                    }
+                })
                 self.packagesModule.publicInterface?.updatePackage(
                     at: self.selectedPackageIndex,
                     package: package
